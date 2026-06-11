@@ -159,4 +159,7 @@ def run_submission(
     )
 
     result = workflow.invoke(initial_state)
+    # LangGraph returns a dict (not the Pydantic model) when Annotated reducers are active
+    if isinstance(result, dict):
+        return UnderwritingState.model_validate(result)
     return result

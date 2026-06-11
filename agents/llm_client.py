@@ -72,6 +72,11 @@ def llm_call(
             raw = re.sub(r"\s*```$", "", raw)
 
             parsed = json.loads(raw)
+            # Gemma sometimes returns the full JSON Schema structure {"title":..,"properties":{..}}
+            # instead of the flat data object — unwrap the "properties" level.
+            # Safe because none of our Pydantic schemas have a field named "properties".
+            if "properties" in parsed and isinstance(parsed["properties"], dict):
+                parsed = parsed["properties"]
             return response_schema.model_validate(parsed)
 
         except Exception as e:

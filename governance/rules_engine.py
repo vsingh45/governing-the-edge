@@ -189,6 +189,19 @@ class RulesEngine:
             )
         return "\n".join(lines)
 
+    def format_warning_rules_for_prompt(self, line: str) -> str:
+        """Format only WARNING-severity rules — HARD_STOP rules are checked deterministically."""
+        rules = [r for r in self.get_rules_for_line(line) if r.severity == "WARNING"]
+        lines = [f"WARNING RULES TO EVALUATE FOR {line}:\n"]
+        for r in rules:
+            lines.append(
+                f"Rule {r.rule_id} [WARNING]\n"
+                f"  Description: {r.description}\n"
+                f"  Condition: {r.condition}\n"
+                f"  Violation Message: {r.violation_message}\n"
+            )
+        return "\n".join(lines)
+
     def to_json(self) -> str:
         """Export all rules as JSON (for documentation/audit purposes)."""
         return json.dumps([r.model_dump() for r in RULES], indent=2)

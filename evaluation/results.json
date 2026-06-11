@@ -1,0 +1,623 @@
+{
+  "monolithic_sonnet": {
+    "compliance_accuracy": 0.75,
+    "completion_rate": 1.0,
+    "avg_latency": 6.42892154455185,
+    "results": [
+      {
+        "scenario_id": "CP-S01",
+        "complexity": "STRAIGHTFORWARD_APPROVAL",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 5.200340032577515,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S02",
+        "complexity": "STRAIGHTFORWARD_APPROVAL",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 8.399307012557983,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S03",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 8.280325174331665,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S04",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": false,
+        "workflow_completed": true,
+        "latency": 5.067056894302368,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S05",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 6.669466257095337,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S06",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 6.546862840652466,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S07",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 6.6226420402526855,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S08",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 5.90058708190918,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S09",
+        "complexity": "LOW_CONFIDENCE_ESCALATION",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 6.47513484954834,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S10",
+        "complexity": "LOW_CONFIDENCE_ESCALATION",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 7.985975027084351,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S01",
+        "complexity": "STRAIGHTFORWARD_APPROVAL",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 6.961270093917847,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S02",
+        "complexity": "STRAIGHTFORWARD_APPROVAL",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 4.708661079406738,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S03",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": false,
+        "workflow_completed": true,
+        "latency": 5.390029668807983,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S04",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": false,
+        "workflow_completed": true,
+        "latency": 5.0875420570373535,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S05",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 7.395484924316406,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S06",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 4.961638927459717,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S07",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "PASS",
+        "compliance_correct": false,
+        "workflow_completed": true,
+        "latency": 4.600388050079346,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S08",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 7.426012992858887,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S09",
+        "complexity": "LOW_CONFIDENCE_ESCALATION",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 6.401814937591553,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S10",
+        "complexity": "LOW_CONFIDENCE_ESCALATION",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": false,
+        "workflow_completed": true,
+        "latency": 8.497890949249268,
+        "error": ""
+      }
+    ]
+  },
+  "linear_pipeline": {
+    "compliance_accuracy": 0.3,
+    "completion_rate": 1.0,
+    "avg_latency": 30.43105802536011,
+    "results": [
+      {
+        "scenario_id": "CP-S01",
+        "complexity": "STRAIGHTFORWARD_APPROVAL",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": false,
+        "workflow_completed": true,
+        "latency": 23.711936950683594,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S02",
+        "complexity": "STRAIGHTFORWARD_APPROVAL",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": false,
+        "workflow_completed": true,
+        "latency": 29.034302949905396,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S03",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": false,
+        "workflow_completed": true,
+        "latency": 34.78800415992737,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S04",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": false,
+        "workflow_completed": true,
+        "latency": 30.642476081848145,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S05",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": false,
+        "workflow_completed": true,
+        "latency": 43.916295289993286,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S06",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 29.899005889892578,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S07",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 28.84869885444641,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S08",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 33.93121385574341,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S09",
+        "complexity": "LOW_CONFIDENCE_ESCALATION",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": false,
+        "workflow_completed": true,
+        "latency": 34.32841491699219,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S10",
+        "complexity": "LOW_CONFIDENCE_ESCALATION",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": false,
+        "workflow_completed": true,
+        "latency": 31.295079946517944,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S01",
+        "complexity": "STRAIGHTFORWARD_APPROVAL",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": false,
+        "workflow_completed": true,
+        "latency": 25.085585117340088,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S02",
+        "complexity": "STRAIGHTFORWARD_APPROVAL",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": false,
+        "workflow_completed": true,
+        "latency": 26.826812982559204,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S03",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": false,
+        "workflow_completed": true,
+        "latency": 28.876991987228394,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S04",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": false,
+        "workflow_completed": true,
+        "latency": 30.71400499343872,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S05",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": false,
+        "workflow_completed": true,
+        "latency": 31.92037606239319,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S06",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 27.98784613609314,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S07",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 26.244565963745117,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S08",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 27.514286279678345,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S09",
+        "complexity": "LOW_CONFIDENCE_ESCALATION",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": false,
+        "workflow_completed": true,
+        "latency": 32.46695303916931,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S10",
+        "complexity": "LOW_CONFIDENCE_ESCALATION",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": false,
+        "workflow_completed": true,
+        "latency": 30.588309049606323,
+        "error": ""
+      }
+    ]
+  },
+  "governing_the_edge": {
+    "compliance_accuracy": 0.85,
+    "completion_rate": 1.0,
+    "avg_latency": 247.7037409424782,
+    "results": [
+      {
+        "scenario_id": "CP-S01",
+        "complexity": "STRAIGHTFORWARD_APPROVAL",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 231.7059841156006,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S02",
+        "complexity": "STRAIGHTFORWARD_APPROVAL",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 240.45248675346375,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S03",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 259.0267708301544,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S04",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 288.2257788181305,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S05",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 284.76132798194885,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S06",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 218.33342695236206,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S07",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 198.44388508796692,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S08",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 206.07683777809143,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S09",
+        "complexity": "LOW_CONFIDENCE_ESCALATION",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 267.5035331249237,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S10",
+        "complexity": "LOW_CONFIDENCE_ESCALATION",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 326.039057970047,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S01",
+        "complexity": "STRAIGHTFORWARD_APPROVAL",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 227.42975091934204,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S02",
+        "complexity": "STRAIGHTFORWARD_APPROVAL",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 256.0391798019409,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S03",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": false,
+        "workflow_completed": true,
+        "latency": 230.7015209197998,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S04",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": false,
+        "workflow_completed": true,
+        "latency": 235.54733204841614,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S05",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 276.02188086509705,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S06",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 197.5360050201416,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S07",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "PASS",
+        "compliance_correct": false,
+        "workflow_completed": true,
+        "latency": 305.3611183166504,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S08",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 217.90027809143066,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S09",
+        "complexity": "LOW_CONFIDENCE_ESCALATION",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 246.06737399101257,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S10",
+        "complexity": "LOW_CONFIDENCE_ESCALATION",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 243.5098807811737,
+        "error": ""
+      }
+    ]
+  }
+}

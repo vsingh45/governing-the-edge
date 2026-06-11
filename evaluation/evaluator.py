@@ -19,6 +19,7 @@ from typing import Dict, List, Any
 from dataclasses import dataclass, field
 
 from data.scenarios.scenarios import SCENARIOS
+from evaluation.error_tracking import error_tracker
 
 
 @dataclass
@@ -82,13 +83,13 @@ def run_monolithic(scenario: Dict) -> EvalResult:
         complexity=scenario["complexity"],
         ground_truth_decision=scenario["ground_truth_decision"],
         ground_truth_compliance=scenario["ground_truth_compliance"],
-        system_name="monolithic_gpt4o",
+        system_name="monolithic_sonnet",
     )
 
     start = time.time()
     try:
         output = llm_call(
-            model="gpt-4o",
+            model=CLOUD_MODEL,
             system_prompt=(
                 "You are a commercial P&C insurance underwriter. "
                 "Review this submission and determine: "
@@ -247,7 +248,7 @@ def run_full_evaluation(
     summaries: Dict[str, EvalSummary] = {}
 
     systems = []
-    if run_monolithic_flag: systems.append(("monolithic_gpt4o",       run_monolithic))
+    if run_monolithic_flag: systems.append(("monolithic_sonnet",      run_monolithic))
     if run_linear_flag:      systems.append(("linear_pipeline",        run_linear_pipeline))
     if run_framework_flag:   systems.append(("governing_the_edge",     run_our_framework))
 
@@ -280,6 +281,9 @@ def run_full_evaluation(
             print(f"    Compliance Accuracy:    {summary.compliance_accuracy:.1%}")
             print(f"    Workflow Completion:     {summary.completion_rate:.1%}")
             print(f"    Avg Latency:             {summary.avg_latency:.1f}s")
+
+        # Persist after each system so data survives interruptions
+        error_tracker.to_file("evaluation/error_report.json")
 
     return summaries
 
@@ -338,3 +342,5 @@ if __name__ == "__main__":
     summaries = run_full_evaluation(verbose=True)
     print_comparison_table(summaries)
     save_results(summaries, "evaluation/results.json")
+    error_tracker.to_file("evaluation/error_report.json")
+    print("Error report saved to evaluation/error_report.json")

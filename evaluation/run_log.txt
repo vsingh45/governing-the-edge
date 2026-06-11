@@ -1,0 +1,122 @@
+
+============================================================
+Running: monolithic_sonnet
+============================================================
+  [01/20] CP-S01 (STRAIGHTFORWARD_APPROVAL)... ✓ compliance=PASS decision=APPROVE (5.2s)
+  [02/20] CP-S02 (STRAIGHTFORWARD_APPROVAL)... ✓ compliance=PASS decision=APPROVE (8.4s)
+  [03/20] CP-S03 (WARNING_COMPLIANCE)... ✓ compliance=PASS decision=REFER (8.3s)
+  [04/20] CP-S04 (WARNING_COMPLIANCE)... ✗ compliance=FAIL decision=REQUEST_INFO (5.1s)
+  [05/20] CP-S05 (WARNING_COMPLIANCE)... ✓ compliance=PASS decision=REFER (6.7s)
+  [06/20] CP-S06 (HARD_STOP_VIOLATION)... ✓ compliance=FAIL decision=DECLINE (6.5s)
+  [07/20] CP-S07 (HARD_STOP_VIOLATION)... ✓ compliance=FAIL decision=REFER (6.6s)
+  [08/20] CP-S08 (HARD_STOP_VIOLATION)... ✓ compliance=FAIL decision=DECLINE (5.9s)
+  [09/20] CP-S09 (LOW_CONFIDENCE_ESCALATION)... ✓ compliance=PASS decision=APPROVE (6.5s)
+  [10/20] CP-S10 (LOW_CONFIDENCE_ESCALATION)... ✓ compliance=PASS decision=REFER (8.0s)
+  [11/20] CA-S01 (STRAIGHTFORWARD_APPROVAL)... ✓ compliance=PASS decision=APPROVE (7.0s)
+  [12/20] CA-S02 (STRAIGHTFORWARD_APPROVAL)... ✓ compliance=PASS decision=APPROVE (4.7s)
+  [13/20] CA-S03 (WARNING_COMPLIANCE)... ✗ compliance=FAIL decision=REFER (5.4s)
+  [14/20] CA-S04 (WARNING_COMPLIANCE)... ✗ compliance=FAIL decision=REFER (5.1s)
+  [15/20] CA-S05 (WARNING_COMPLIANCE)... ✓ compliance=PASS decision=REFER (7.4s)
+  [16/20] CA-S06 (HARD_STOP_VIOLATION)... ✓ compliance=FAIL decision=DECLINE (5.0s)
+  [17/20] CA-S07 (HARD_STOP_VIOLATION)... ✗ compliance=PASS decision=REFER (4.6s)
+  [18/20] CA-S08 (HARD_STOP_VIOLATION)... ✓ compliance=FAIL decision=DECLINE (7.4s)
+  [19/20] CA-S09 (LOW_CONFIDENCE_ESCALATION)... ✓ compliance=PASS decision=REFER (6.4s)
+  [20/20] CA-S10 (LOW_CONFIDENCE_ESCALATION)... ✗ compliance=FAIL decision=REQUEST_INFO (8.5s)
+
+  RESULTS — monolithic_sonnet:
+    Compliance Accuracy:    75.0%
+    Workflow Completion:     100.0%
+    Avg Latency:             6.4s
+
+============================================================
+Running: linear_pipeline
+============================================================
+  [01/20] CP-S01 (STRAIGHTFORWARD_APPROVAL)... ✗ compliance=FAIL decision=REFER (23.7s)
+  [02/20] CP-S02 (STRAIGHTFORWARD_APPROVAL)... ✗ compliance=FAIL decision=REFER (29.0s)
+  [03/20] CP-S03 (WARNING_COMPLIANCE)... ✗ compliance=FAIL decision=REFER (34.8s)
+  [04/20] CP-S04 (WARNING_COMPLIANCE)... ✗ compliance=FAIL decision=REFER (30.6s)
+  [05/20] CP-S05 (WARNING_COMPLIANCE)... ✗ compliance=FAIL decision=REFER (43.9s)
+  [06/20] CP-S06 (HARD_STOP_VIOLATION)... ✓ compliance=FAIL decision=REFER (29.9s)
+  [07/20] CP-S07 (HARD_STOP_VIOLATION)... ✓ compliance=FAIL decision=REFER (28.8s)
+  [08/20] CP-S08 (HARD_STOP_VIOLATION)... ✓ compliance=FAIL decision=REFER (33.9s)
+  [09/20] CP-S09 (LOW_CONFIDENCE_ESCALATION)... ✗ compliance=FAIL decision=REQUEST_INFO (34.3s)
+  [10/20] CP-S10 (LOW_CONFIDENCE_ESCALATION)... ✗ compliance=FAIL decision=DECLINE (31.3s)
+  [11/20] CA-S01 (STRAIGHTFORWARD_APPROVAL)... ✗ compliance=FAIL decision=REFER (25.1s)
+  [12/20] CA-S02 (STRAIGHTFORWARD_APPROVAL)... ✗ compliance=FAIL decision=REQUEST_INFO (26.8s)
+  [13/20] CA-S03 (WARNING_COMPLIANCE)... ✗ compliance=FAIL decision=REFER (28.9s)
+  [14/20] CA-S04 (WARNING_COMPLIANCE)... ✗ compliance=FAIL decision=REQUEST_INFO (30.7s)
+  [15/20] CA-S05 (WARNING_COMPLIANCE)... ✗ compliance=FAIL decision=REQUEST_INFO (31.9s)
+  [16/20] CA-S06 (HARD_STOP_VIOLATION)... ✓ compliance=FAIL decision=DECLINE (28.0s)
+  [17/20] CA-S07 (HARD_STOP_VIOLATION)... ✓ compliance=FAIL decision=REQUEST_INFO (26.2s)
+  [18/20] CA-S08 (HARD_STOP_VIOLATION)... ✓ compliance=FAIL decision=DECLINE (27.5s)
+  [19/20] CA-S09 (LOW_CONFIDENCE_ESCALATION)... ✗ compliance=FAIL decision=REFER (32.5s)
+  [20/20] CA-S10 (LOW_CONFIDENCE_ESCALATION)... ✗ compliance=FAIL decision=DECLINE (30.6s)
+
+  RESULTS — linear_pipeline:
+    Compliance Accuracy:    30.0%
+    Workflow Completion:     100.0%
+    Avg Latency:             30.4s
+
+============================================================
+Running: governing_the_edge
+============================================================
+  [01/20] CP-S01 (STRAIGHTFORWARD_APPROVAL)... ✓ compliance=PASS decision=REFER (231.7s)
+  [02/20] CP-S02 (STRAIGHTFORWARD_APPROVAL)... ✓ compliance=PASS decision=REFER (240.5s)
+  [03/20] CP-S03 (WARNING_COMPLIANCE)... ✓ compliance=PASS decision=REFER (259.0s)
+  [04/20] CP-S04 (WARNING_COMPLIANCE)... ✓ compliance=PASS decision=REFER (288.2s)
+  [05/20] CP-S05 (WARNING_COMPLIANCE)... ✓ compliance=PASS decision=REFER (284.8s)
+  [06/20] CP-S06 (HARD_STOP_VIOLATION)... ✗ compliance=PASS decision=REFER (224.6s)
+  [07/20] CP-S07 (HARD_STOP_VIOLATION)... ✓ compliance=FAIL decision=REFER (184.7s)
+  [08/20] CP-S08 (HARD_STOP_VIOLATION)... ✗ compliance=PASS decision=REFER (241.3s)
+  [09/20] CP-S09 (LOW_CONFIDENCE_ESCALATION)... ✓ compliance=PASS decision=REFER (267.5s)
+  [10/20] CP-S10 (LOW_CONFIDENCE_ESCALATION)... ✓ compliance=PASS decision=REFER (326.0s)
+  [11/20] CA-S01 (STRAIGHTFORWARD_APPROVAL)... ✓ compliance=PASS decision=REFER (227.4s)
+  [12/20] CA-S02 (STRAIGHTFORWARD_APPROVAL)... ✓ compliance=PASS decision=REFER (256.0s)
+  [13/20] CA-S03 (WARNING_COMPLIANCE)... ✗ compliance=FAIL decision=REFER (230.7s)
+  [14/20] CA-S04 (WARNING_COMPLIANCE)... ✗ compliance=FAIL decision=REFER (235.5s)
+  [15/20] CA-S05 (WARNING_COMPLIANCE)... ✓ compliance=PASS decision=REFER (276.0s)
+  [16/20] CA-S06 (HARD_STOP_VIOLATION)... ✗ compliance=PASS decision=REFER (271.7s)
+  [17/20] CA-S07 (HARD_STOP_VIOLATION)... ✓ compliance=FAIL decision=REFER (207.6s)
+  [18/20] CA-S08 (HARD_STOP_VIOLATION)... ✓ compliance=FAIL decision=REFER (211.1s)
+  [19/20] CA-S09 (LOW_CONFIDENCE_ESCALATION)... ✓ compliance=PASS decision=REFER (246.1s)
+  [20/20] CA-S10 (LOW_CONFIDENCE_ESCALATION)... ✓ compliance=PASS decision=REFER (243.5s)
+
+  RESULTS — governing_the_edge:
+    Compliance Accuracy:    75.0%
+    Workflow Completion:     100.0%
+    Avg Latency:             247.7s
+
+======================================================================
+RESULTS TABLE — For Paper Section V
+======================================================================
+System                         Compliance Acc.    Completion Rate    Avg Latency
+----------------------------------------------------------------------
+monolithic_sonnet              75.0%              100.0%             6.4s
+linear_pipeline                30.0%              100.0%             30.4s
+governing_the_edge             75.0%              100.0%             247.7s
+======================================================================
+
+Per-Complexity Compliance Accuracy:
+
+  STRAIGHTFORWARD_APPROVAL:
+    monolithic_sonnet              100.0% (4/4)
+    linear_pipeline                0.0% (0/4)
+    governing_the_edge             100.0% (4/4)
+
+  WARNING_COMPLIANCE:
+    monolithic_sonnet              50.0% (3/6)
+    linear_pipeline                0.0% (0/6)
+    governing_the_edge             66.7% (4/6)
+
+  HARD_STOP_VIOLATION:
+    monolithic_sonnet              83.3% (5/6)
+    linear_pipeline                100.0% (6/6)
+    governing_the_edge             50.0% (3/6)
+
+  LOW_CONFIDENCE_ESCALATION:
+    monolithic_sonnet              75.0% (3/4)
+    linear_pipeline                0.0% (0/4)
+    governing_the_edge             100.0% (4/4)
+
+Results saved to evaluation/results.json
+Error report saved to evaluation/error_report.json

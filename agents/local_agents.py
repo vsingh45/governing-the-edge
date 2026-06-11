@@ -17,7 +17,9 @@ from pydantic import BaseModel, Field
 
 from config.settings import get_model
 from agents.llm_client import llm_call
+from agents.error_wrapper import wrap_agent_with_tracking
 from governance.rules_engine import rules_engine
+from governance.deterministic_rules import evaluate_hard_stops
 from graph.state import UnderwritingState, make_audit_entry
 
 
@@ -77,6 +79,7 @@ class ComplianceAgentOutput(BaseModel):
 
 # ── Node 1: Document Parser ───────────────────────────────────────────────────
 
+@wrap_agent_with_tracking("document_parser", tool_names=["ocr_document"])
 def document_parser_node(state: UnderwritingState) -> UnderwritingState:
     """
     Normalize raw PDF/email to clean structured text.
@@ -119,6 +122,7 @@ def document_parser_node(state: UnderwritingState) -> UnderwritingState:
 
 # ── Node 2: Intake Agent ──────────────────────────────────────────────────────
 
+@wrap_agent_with_tracking("intake", tool_names=["validate_address", "lookup_sic_code"])
 def intake_node(state: UnderwritingState) -> UnderwritingState:
     """
     Extract typed underwriting fields from normalized text.
@@ -136,7 +140,26 @@ def intake_node(state: UnderwritingState) -> UnderwritingState:
             "from the submission text following the ACORD 125 commercial lines schema. "
             "CRITICAL: Return null for any field you cannot confidently extract. "
             "Never guess or hallucinate values. A null value is always preferable to a wrong value. "
-            "Flag any internal inconsistencies you notice in the data."
+            "Flag any internal inconsistencies you notice in the data.\n\n"
+            "EXTRACTION CHECKLIST — verify each applicable field before returning JSON:\n\n"
+            "COMMERCIAL_PROPERTY fields (extract if line is property):\n"
+            "- construction_class: FRAME / MASONRY / JOISTED_MASONRY / FIRE_RESISTIVE\n"
+            "  (look for words: 'frame', 'wood', 'masonry', 'brick', 'concrete', 'fire-resistive')\n"
+            "- stories: integer story count\n"
+            "  (look for: '3 stories', 'three-story', 'single story', '5-story building')\n"
+            "- total_insured_value: numeric dollar amount (TIV)\n"
+            "- occupancy_type: OFFICE / RETAIL / RESTAURANT / HABITATIONAL / WAREHOUSE / CONTRACTOR\n"
+            "- unit_count: integer (REQUIRED if HABITATIONAL)\n"
+            "- year_built: 4-digit year\n"
+            "- last_renovation_year: 4-digit year OR null\n"
+            "- three_year_loss_ratio: decimal (0.0 to 1.0)\n\n"
+            "COMMERCIAL_AUTO fields (extract if line is auto):\n"
+            "- fleet_size: integer vehicle count\n"
+            "- average_fleet_age: numeric years\n"
+            "- radius_of_operations: integer miles\n"
+            "- dot_safety_rating: SATISFACTORY / CONDITIONAL / UNSATISFACTORY / NOT_RATED\n"
+            "- driver_mvr_violations: MAXIMUM major violations across any single driver in past 3 years\n\n"
+            "Before returning, verify each checkbox. Missing field = null, but check explicitly."
         ),
         user_prompt=(
             f"Extract all underwriting fields from this submission:\n\n{normalized}"
@@ -145,7 +168,7 @@ def intake_node(state: UnderwritingState) -> UnderwritingState:
     )
 
     # Write structured fields to state
-    state.submission_type = result.submission_type
+    state.submission_type = result.submission_type.upper().replace(" ", "_")
     for field, value in result.model_dump().items():
         if field not in ("confidence", "explanation", "missing_fields") and value is not None:
             state.parsed_fields[field] = value
@@ -195,6 +218,7 @@ def _run_risk_subagent(
     )
 
 
+@wrap_agent_with_tracking("property_risk", tool_names=["lookup_fema_flood_zone", "lookup_wildfire_risk"])
 def property_risk_node(state: UnderwritingState) -> UnderwritingState:
     """3a — Property risk: construction, occupancy, TIV."""
     state.audit_trail.append(make_audit_entry("AGENT_START", "property_risk"))
@@ -231,6 +255,7 @@ def property_risk_node(state: UnderwritingState) -> UnderwritingState:
     return state
 
 
+@wrap_agent_with_tracking("geographic_risk", tool_names=["lookup_mvr"])
 def geographic_risk_node(state: UnderwritingState) -> UnderwritingState:
     """3b — Geographic/Driver risk."""
     state.audit_trail.append(make_audit_entry("AGENT_START", "geographic_risk"))
@@ -266,6 +291,7 @@ def geographic_risk_node(state: UnderwritingState) -> UnderwritingState:
     return state
 
 
+@wrap_agent_with_tracking("business_risk", tool_names=["lookup_dnb_business", "lookup_dot_safety_rating"])
 def business_risk_node(state: UnderwritingState) -> UnderwritingState:
     """3c — Business/Operations risk."""
     state.audit_trail.append(make_audit_entry("AGENT_START", "business_risk"))
@@ -304,12 +330,15 @@ def business_risk_node(state: UnderwritingState) -> UnderwritingState:
 
 # ── Node 4: Compliance Agent ──────────────────────────────────────────────────
 
-def _run_compliance(
+def _run_warning_compliance(
     state: UnderwritingState,
     retry_context: str = "",
 ) -> ComplianceAgentOutput:
-    """Shared compliance runner used by both compliance_node and compliance_retry_node."""
-    rule_prompt = rules_engine.format_rules_for_prompt(state.submission_type)
+    """
+    LLM-based check of WARNING rules only.
+    HARD_STOP rules are handled deterministically before this is called.
+    """
+    rule_prompt = rules_engine.format_warning_rules_for_prompt(state.submission_type)
     fields_json = str({k: v for k, v in state.parsed_fields.items() if not k.startswith("_")})
 
     retry_instruction = ""
@@ -323,36 +352,69 @@ def _run_compliance(
     return llm_call(
         model=get_model("local"),
         system_prompt=(
-            "You are a P&C insurance compliance officer. "
-            "Check the submission against ALL applicable underwriting rules. "
-            "For each rule, evaluate whether the submission fields satisfy the condition. "
-            "Return PASS only if ALL rules are satisfied. "
-            "Return FAIL if any HARD_STOP rule is violated. "
-            "Return CONFLICT only if two rules genuinely contradict each other. "
-            "IMPORTANT: Always cite the specific rule_id for any violation or conflict. "
+            "You are a P&C insurance compliance officer evaluating WARNING-level underwriting rules. "
+            "HARD_STOP rules have already been cleared — focus only on the WARNING rules listed below. "
+            "Return PASS if no warning conditions are triggered. "
+            "Return FAIL if any warning condition applies. "
+            "Return CONFLICT only if two warning rules genuinely contradict each other. "
+            "IMPORTANT: Always cite the specific rule_id for any warning or conflict. "
             + retry_instruction
         ),
         user_prompt=(
             f"Submission type: {state.submission_type}\n"
             f"Submission fields:\n{fields_json}\n\n"
             f"{rule_prompt}\n\n"
-            "Evaluate all rules and return your compliance determination."
+            "Evaluate all warning rules and return your compliance determination."
         ),
         response_schema=ComplianceAgentOutput,
     )
 
 
+@wrap_agent_with_tracking("compliance", tool_names=["query_rules_engine"])
 def compliance_node(state: UnderwritingState) -> UnderwritingState:
-    """Node 4 — First compliance check."""
+    """Node 4 — Compliance check. Deterministic hard-stop first, then LLM for warnings."""
     state.audit_trail.append(make_audit_entry("AGENT_START", "compliance"))
 
-    result = _run_compliance(state)
+    # Step 1: deterministic HARD_STOP evaluation — no LLM, no latency
+    hard_stop_violations = evaluate_hard_stops(
+        state.submission_type,
+        state.parsed_fields,
+    )
+
+    if hard_stop_violations:
+        hard_stop_rule_ids = [v["rule_id"] for v in hard_stop_violations]
+        state.compliance_result.status        = "FAIL"
+        state.compliance_result.severity      = "HARD_STOP"
+        state.compliance_result.violations    = hard_stop_violations
+        state.compliance_result.rules_checked = hard_stop_rule_ids
+        state.compliance_result.conflicts     = []
+
+        state.agent_explanations["compliance"] = {
+            "agent": "compliance",
+            "status": "FAIL",
+            "rules_checked": hard_stop_rule_ids,
+            "violations": hard_stop_violations,
+            "severity": "HARD_STOP",
+            "confidence": 1.0,
+            "method": "deterministic",
+        }
+        state.audit_trail.append(make_audit_entry(
+            "GOVERNANCE_CHECK", "compliance",
+            output_summary=f"HARD_STOP violations: {hard_stop_rule_ids}",
+            governance_result="FAIL",
+            rule_ids_checked=hard_stop_rule_ids,
+            routing_outcome="compliance -> fail_path",
+        ))
+        return state
+
+    # Step 2: LLM check of WARNING rules only (HARD_STOPs already cleared)
+    result = _run_warning_compliance(state)
 
     state.compliance_result.status        = result.status
     state.compliance_result.rules_checked = result.rules_checked
     state.compliance_result.violations    = result.violations
     state.compliance_result.conflicts     = result.conflicts
-    state.compliance_result.severity      = result.severity
+    state.compliance_result.severity      = result.severity if result.status == "FAIL" else "NONE"
 
     state.agent_explanations["compliance"] = {
         "agent": "compliance",
@@ -361,8 +423,8 @@ def compliance_node(state: UnderwritingState) -> UnderwritingState:
         "violations": result.violations,
         "severity": result.severity,
         "confidence": result.confidence,
+        "method": "llm_warning_check",
     }
-
     state.audit_trail.append(make_audit_entry(
         "GOVERNANCE_CHECK", "compliance",
         output_summary=f"Status={result.status}, Severity={result.severity}",
@@ -373,13 +435,14 @@ def compliance_node(state: UnderwritingState) -> UnderwritingState:
     return state
 
 
+@wrap_agent_with_tracking("compliance_retry", tool_names=["query_rules_engine"])
 def compliance_retry_node(state: UnderwritingState) -> UnderwritingState:
     """Compliance retry — called only on CONFLICT. Applies more-restrictive-rule heuristic."""
     state.compliance_result.retry_count += 1
     state.audit_trail.append(make_audit_entry("AGENT_START", "compliance_retry"))
 
     conflict_context = str(state.compliance_result.conflicts)
-    result = _run_compliance(state, retry_context=conflict_context)
+    result = _run_warning_compliance(state, retry_context=conflict_context)
 
     state.compliance_result.status    = result.status
     state.compliance_result.violations = result.violations

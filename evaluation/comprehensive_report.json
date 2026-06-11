@@ -1,0 +1,103 @@
+{
+  "evaluation_metadata": {
+    "total_scenarios": 20,
+    "total_systems": 3,
+    "total_runs": 60,
+    "date": "2026-06-07"
+  },
+  "system_performance": {
+    "monolithic_gpt4o": {
+      "compliance_accuracy": 0.0,
+      "completion_rate": 0.0,
+      "avg_latency_sec": 0.2952136516571045,
+      "scenario_results": {},
+      "accuracy_by_complexity": {
+        "STRAIGHTFORWARD_APPROVAL": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "total": 4
+        },
+        "WARNING_COMPLIANCE": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "total": 6
+        },
+        "HARD_STOP_VIOLATION": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "total": 6
+        },
+        "LOW_CONFIDENCE_ESCALATION": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "total": 4
+        }
+      },
+      "top_errors": {
+        "LLM call failed after 3 retries. Last error: litellm.AuthenticationError: AuthenticationError: OpenA": 20
+      }
+    },
+    "linear_pipeline": {
+      "compliance_accuracy": 0.35,
+      "completion_rate": 1.0,
+      "avg_latency_sec": 30.61173884868622,
+      "scenario_results": {},
+      "accuracy_by_complexity": {
+        "STRAIGHTFORWARD_APPROVAL": {
+          "accuracy": 25.0,
+          "correct": 1,
+          "total": 4
+        },
+        "WARNING_COMPLIANCE": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "total": 6
+        },
+        "HARD_STOP_VIOLATION": {
+          "accuracy": 100.0,
+          "correct": 6,
+          "total": 6
+        },
+        "LOW_CONFIDENCE_ESCALATION": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "total": 4
+        }
+      },
+      "top_errors": {}
+    },
+    "governing_the_edge": {
+      "compliance_accuracy": 0.0,
+      "completion_rate": 0.0,
+      "avg_latency_sec": 286.9930549025536,
+      "scenario_results": {},
+      "accuracy_by_complexity": {
+        "STRAIGHTFORWARD_APPROVAL": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "total": 4
+        },
+        "WARNING_COMPLIANCE": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "total": 6
+        },
+        "HARD_STOP_VIOLATION": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "total": 6
+        },
+        "LOW_CONFIDENCE_ESCALATION": {
+          "accuracy": 0.0,
+          "correct": 0,
+          "total": 4
+        }
+      },
+      "top_errors": {
+        "LLM call failed after 3 retries. Last error: 3 validation errors for RiskSubAgentOutput\ndimension\n  ": 19,
+        "At key 'submission_id': Can receive only one value per step. Use an Annotated key to handle multiple": 1
+      }
+    }
+  },
+  "error_analysis": {}
+}

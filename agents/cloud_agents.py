@@ -15,6 +15,7 @@ from pydantic import BaseModel, Field
 
 from config.settings import get_model, RISK_WEIGHTS
 from agents.llm_client import llm_call
+from agents.error_wrapper import wrap_agent_with_tracking
 from graph.state import UnderwritingState, CoverageGap, PricingRecommendation, make_audit_entry
 
 
@@ -58,6 +59,7 @@ class ExplainabilityOutput(BaseModel):
 
 # ── Node 3d: Risk Aggregator ──────────────────────────────────────────────────
 
+@wrap_agent_with_tracking("risk_aggregator")
 def risk_aggregator_node(state: UnderwritingState) -> UnderwritingState:
     """
     Combine three sub-agent scores into unified risk profile.
@@ -113,6 +115,7 @@ def risk_aggregator_node(state: UnderwritingState) -> UnderwritingState:
 
 # ── Node 5: Coverage Gap Agent ────────────────────────────────────────────────
 
+@wrap_agent_with_tracking("coverage_gap")
 def coverage_gap_node(state: UnderwritingState) -> UnderwritingState:
     """
     Identify missing or insufficient coverage.
@@ -173,6 +176,7 @@ def coverage_gap_node(state: UnderwritingState) -> UnderwritingState:
 
 # ── Node 6: Pricing Agent ─────────────────────────────────────────────────────
 
+@wrap_agent_with_tracking("pricing", tool_names=["lookup_base_rate"])
 def pricing_node(state: UnderwritingState) -> UnderwritingState:
     """
     Recommend premium range.
@@ -231,6 +235,7 @@ def pricing_node(state: UnderwritingState) -> UnderwritingState:
 
 # ── Node 7: Explainability Agent ──────────────────────────────────────────────
 
+@wrap_agent_with_tracking("explainability")
 def explainability_node(state: UnderwritingState) -> UnderwritingState:
     """
     Assemble agent explanation snippets into audit-grade justification trace.
