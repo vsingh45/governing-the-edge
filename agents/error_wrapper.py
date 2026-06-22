@@ -84,12 +84,18 @@ def wrap_agent_with_tracking(
                 latency_ms = (time.time() - start_time) * 1000
                 confidence = getattr(result, 'agent_explanations', {}).get(agent_name, {}).get('confidence', 0.8)
 
+                # [TOOL_GROUNDING_PATCH]
+                # Log the tools that ACTUALLY ran with their real payloads,
+                # not the static documentation list.
+                _tr = getattr(result, '_tool_results', {}) or {}
+                _ran = _tr.get(agent_name, {})
+                _real_tool_calls = list(_ran.keys()) if _ran else []
                 error_tracker.record_success(
                     scenario_id=scenario_id,
                     agent_name=agent_name,
                     latency_ms=latency_ms,
                     confidence=confidence,
-                    tool_calls=tool_names,
+                    tool_calls=_real_tool_calls,
                     retry_count=retry_count
                 )
 

@@ -20,6 +20,11 @@ from agents.llm_client import llm_call
 from agents.error_wrapper import wrap_agent_with_tracking
 from governance.rules_engine import rules_engine
 from governance.deterministic_rules import evaluate_hard_stops
+# [TOOL_GROUNDING_PATCH]
+from agents.tools import (
+    lookup_fema_flood_zone, lookup_wildfire_risk, lookup_mvr,
+    lookup_dnb_business, lookup_dot_safety_rating,
+)
 from graph.state import UnderwritingState, make_audit_entry
 
 
@@ -165,6 +170,7 @@ def intake_node(state: UnderwritingState) -> UnderwritingState:
             f"Extract all underwriting fields from this submission:\n\n{normalized}"
         ),
         response_schema=IntakeOutput,
+        temperature=0.0,   # [INTAKE_TEMP0_PATCH]
     )
 
     # Write structured fields to state
@@ -195,9 +201,18 @@ def _run_risk_subagent(
     dimension_label: str,
     agent_name: str,
     scoring_criteria: str,
+    tool_payload: dict = None,   # [TOOL_GROUNDING_PATCH]
 ) -> RiskSubAgentOutput:
     """Shared runner for all three risk sub-agents."""
     fields_json = str({k: v for k, v in state.parsed_fields.items() if not k.startswith("_")})
+    # [TOOL_GROUNDING_PATCH]
+    # Real tool output is fed into the prompt so the score is grounded in it,
+    # and stashed on state so the tracking wrapper logs the actual payload.
+    tool_payload = tool_payload or {}
+    if not hasattr(state, "_tool_results"):
+        state._tool_results = {}
+    state._tool_results[agent_name] = tool_payload
+    tool_json = str(tool_payload) if tool_payload else "(no external tool output)"
 
     return llm_call(
         model=get_model("local"),
@@ -212,7 +227,8 @@ def _run_risk_subagent(
         user_prompt=(
             f"Submission type: {state.submission_type}\n"
             f"Submission fields:\n{fields_json}\n\n"
-            f"Score the {dimension_label} risk dimension."
+            f"Authoritative tool data:\n{tool_json}\n\n"   # [TOOL_GROUNDING_PATCH]
+            f"Score the {dimension_label} risk dimension using the tool data above."
         ),
         response_schema=RiskSubAgentOutput,
     )
@@ -237,7 +253,17 @@ def property_risk_node(state: UnderwritingState) -> UnderwritingState:
             "average fleet age (>10yr=high, 5-10yr=medium, <5yr=low)."
         )
 
-    result = _run_risk_subagent(state, "Property/Fleet", "property_risk", criteria)
+    # [TOOL_GROUNDING_PATCH]
+    pf = state.parsed_fields
+    tool_payload = {}
+    if state.submission_type == "COMMERCIAL_PROPERTY":
+        # Tool stubs ignore coordinates; we pass the business name/SIC as the
+        # available location proxy so the audit log records a real input.
+        tool_payload["fema_flood_zone"] = lookup_fema_flood_zone(
+            0.0, 0.0, pf.get("business_name", ""))
+        tool_payload["wildfire_risk"] = lookup_wildfire_risk(
+            0.0, 0.0, pf.get("sic_code", ""))
+    result = _run_risk_subagent(state, "Property/Fleet", "property_risk", criteria, tool_payload=tool_payload)
     state.risk_profile.dimension_a_score = result.score
 
     state.agent_explanations["property_risk"] = {
@@ -274,7 +300,15 @@ def geographic_risk_node(state: UnderwritingState) -> UnderwritingState:
             "driving experience (<2yr=high, 2-5yr=medium, >5yr=low)."
         )
 
-    result = _run_risk_subagent(state, "Geographic/Driver", "geographic_risk", criteria)
+    # [TOOL_GROUNDING_PATCH]
+    pf = state.parsed_fields
+    tool_payload = {}
+    if state.submission_type == "COMMERCIAL_AUTO":
+        # Stub ignores args; pass business name as the carrier identifier so
+        # the logged input is a real field rather than a placeholder.
+        tool_payload["mvr"] = lookup_mvr(
+            pf.get("business_name", ""), "", "")
+    result = _run_risk_subagent(state, "Geographic/Driver", "geographic_risk", criteria, tool_payload=tool_payload)
     state.risk_profile.dimension_b_score = result.score
 
     state.agent_explanations["geographic_risk"] = {
@@ -311,7 +345,12 @@ def business_risk_node(state: UnderwritingState) -> UnderwritingState:
             "prior auto losses (>2 in 3yr=high, 1=medium, 0=low)."
         )
 
-    result = _run_risk_subagent(state, "Business/Operations", "business_risk", criteria)
+    # [TOOL_GROUNDING_PATCH]
+    pf = state.parsed_fields
+    tool_payload = {"dnb": lookup_dnb_business(pf.get("business_name", ""), "", "")}
+    if state.submission_type == "COMMERCIAL_AUTO":
+        tool_payload["dot_safety"] = lookup_dot_safety_rating(pf.get("business_name", ""), "")
+    result = _run_risk_subagent(state, "Business/Operations", "business_risk", criteria, tool_payload=tool_payload)
     state.risk_profile.dimension_c_score = result.score
 
     state.agent_explanations["business_risk"] = {

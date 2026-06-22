@@ -6,6 +6,16 @@ Used by local_agents.py and cloud_agents.py for risk dimension scoring.
 from typing import Optional, Dict, List
 import json
 
+# [TOOL_GROUNDING_PATCH]
+import os as _os
+import random as _random
+def seed_tools(seed: int = 42) -> None:
+    """Seed the RNG used by all tool stubs so a run is reproducible."""
+    _random.seed(seed)
+# Seed at import time from GTE_SEED (default 42) so evaluation is deterministic.
+seed_tools(int(_os.environ.get('GTE_SEED', '42')))
+
+
 
 # ── Document Processing ───────────────────────────────────────────────────────
 
