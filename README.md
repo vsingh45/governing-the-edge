@@ -1,9 +1,9 @@
 # Governing the Edge
 ## A Hybrid Local-Cloud Multi-Agent Framework for Commercial P&C Insurance Underwriting
 
-**Paper:** "Governing the Edge: A Hybrid Local-Cloud Multi-Agent Framework for Commercial P&C Insurance Underwriting"  
+**Paper:** "Governing the Edge: Automating Commercial Property and Casualty Insurance Underwriting via a Hybrid Local-Cloud Multi-Agent Framework"  
 **Authors:** Vivek Kumar Singh (Cisco) · Gautam Bhowmick (Deloitte Consulting)  
-**Conference:** IEEE AIBThings 2026, Central Michigan University
+**Conference:** IEEE International Conference on AI x Business (AIxB 2026), Laguna Hills, California
 
 ---
 
@@ -203,9 +203,9 @@ Rules validated by Gautam Bhowmick (Deloitte Consulting) from active insurance e
 
 ```bibtex
 @inproceedings{singh2026governing,
-  title={Governing the Edge: A Hybrid Local-Cloud Multi-Agent Framework for Commercial P\&C Insurance Underwriting},
+  title={Governing the Edge: Automating Commercial Property and Casualty Insurance Underwriting via a Hybrid Local-Cloud Multi-Agent Framework},
   author={Singh, Vivek Kumar and Bhowmick, Gautam},
-  booktitle={Proceedings of the IEEE 4th International Conference on Artificial Intelligence, Blockchain and Internet of Things (AIBThings)},
+  booktitle={Proceedings of the IEEE International Conference on AI x Business (AIxB)},
   year={2026},
   organization={IEEE}
 }
