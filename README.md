@@ -12,8 +12,9 @@
 This repository contains the reference implementation of the Governing the Edge framework — a governance-aware, privacy-preserving multi-agent system for commercial P&C insurance underwriting.
 
 ### Key Features
-- **11-node LangGraph workflow** with governance-aware conditional routing
-- **Hybrid local-cloud deployment** — sensitive data processed locally via Gemma 4, complex reasoning via Claude Sonnet
+- **13-node LangGraph workflow** (11 agent nodes + 2 deterministic control
+  nodes: `merge_parallel`, `human_escalation`) with governance-aware conditional routing
+- **Hybrid local-cloud deployment** — sensitive data processed locally via Gemma 2, complex reasoning via Claude Sonnet
 - **10 validated P&C compliance rules** across commercial property and commercial auto
 - **Confidence-aware escalation** to human underwriters
 - **Audit-grade explainability** assembled from per-agent explanation snippets
@@ -24,19 +25,20 @@ This repository contains the reference implementation of the Governing the Edge 
 ## Architecture
 
 ```
-Document Parser (Local/Gemma 4)
+Document Parser (Local/Gemma 2)
         ↓
-Intake Agent (Local/Gemma 4)
+Intake Agent (Local/Gemma 2)
         ↓
 ┌─────────────────────────────┐
 │ Property/Fleet Risk (Local) │
-│ Geographic/Driver (Local)   │  ← parallel
+│ Geographic/Driver (Local)   │  ← parallel fan-out
 │ Business/Ops Risk (Local)   │
 └─────────────────────────────┘
+   (graph fan-out; serialized in practice against a single Ollama instance)
         ↓
 Risk Aggregator (Cloud/Sonnet)   ← first cloud agent, receives scores only
         ↓
-Compliance Agent (Local/Gemma 4)
+Compliance Agent (Local/Gemma 2)
         ↓
 PASS ─────────────────────────────────────────────────┐
 FAIL → Human Escalation                               │
@@ -76,7 +78,7 @@ cp .env.example .env
 python -m evaluation.evaluator
 ```
 
-### Option B — Hybrid (Local Gemma 4 + Cloud Sonnet)
+### Option B — Hybrid (Local Gemma 2 + Cloud Sonnet)
 Full privacy-preserving configuration as described in the paper.
 
 ```bash
@@ -84,7 +86,7 @@ Full privacy-preserving configuration as described in the paper.
 # https://ollama.ai/download
 
 # 2. Pull Gemma model
-ollama pull gemma2   # Use gemma2 until gemma4 is available in Ollama
+ollama pull gemma2
 
 # 3. Start Ollama server
 ollama serve
@@ -160,7 +162,7 @@ governing-the-edge/
 │   └── settings.py          # All configuration — models, weights, thresholds
 ├── agents/
 │   ├── llm_client.py        # Provider-agnostic LiteLLM wrapper
-│   ├── local_agents.py      # Gemma 4 agents (parser, intake, risk, compliance)
+│   ├── local_agents.py      # Gemma 2 agents (parser, intake, risk, compliance)
 │   └── cloud_agents.py      # Claude Sonnet agents (aggregator, gap, pricing, explainability)
 ├── graph/
 │   ├── state.py             # UnderwritingState — shared state schema
