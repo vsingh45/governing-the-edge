@@ -1,0 +1,209 @@
+{
+  "governing_the_edge": {
+    "compliance_accuracy": 0.0,
+    "completion_rate": 0.0,
+    "avg_latency": 234.23054242134094,
+    "results": [
+      {
+        "scenario_id": "CP-S01",
+        "complexity": "STRAIGHTFORWARD_APPROVAL",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "",
+        "compliance_correct": false,
+        "workflow_completed": false,
+        "latency": 214.71554613113403,
+        "error": "LLM call failed after 3 retries. Last error: 6 validation errors for RiskSubAgentOutput\ndimension\n  Input should be a valid string [type=string_type, input_value={'title': 'Dimension', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\nscore\n  Input should be a valid number [type=float_type, input_value={'title': 'Score', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nband\n  Input should be a valid string [type=string_type, input_value={'title': 'Band', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntop_factors\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...ctors', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nmissing_inputs\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...nputs', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nconfidence\n  Input should be a valid number [type=float_type, input_value={'default': 0.8, 'title':...ence', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type"
+      },
+      {
+        "scenario_id": "CP-S02",
+        "complexity": "STRAIGHTFORWARD_APPROVAL",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "",
+        "compliance_correct": false,
+        "workflow_completed": false,
+        "latency": 226.38257503509521,
+        "error": "LLM call failed after 3 retries. Last error: 6 validation errors for RiskSubAgentOutput\ndimension\n  Input should be a valid string [type=string_type, input_value={'title': 'Dimension', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\nscore\n  Input should be a valid number [type=float_type, input_value={'title': 'Score', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nband\n  Input should be a valid string [type=string_type, input_value={'title': 'Band', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntop_factors\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...ctors', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nmissing_inputs\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...nputs', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nconfidence\n  Input should be a valid number [type=float_type, input_value={'default': 0.8, 'title':...ence', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type"
+      },
+      {
+        "scenario_id": "CP-S03",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "",
+        "compliance_correct": false,
+        "workflow_completed": false,
+        "latency": 196.284512758255,
+        "error": "LLM call failed after 3 retries. Last error: 6 validation errors for RiskSubAgentOutput\ndimension\n  Input should be a valid string [type=string_type, input_value={'title': 'Dimension', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\nscore\n  Input should be a valid number [type=float_type, input_value={'title': 'Score', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nband\n  Input should be a valid string [type=string_type, input_value={'title': 'Band', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntop_factors\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...ctors', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nmissing_inputs\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...nputs', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nconfidence\n  Input should be a valid number [type=float_type, input_value={'default': 0.8, 'title':...ence', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type"
+      },
+      {
+        "scenario_id": "CP-S04",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "",
+        "compliance_correct": false,
+        "workflow_completed": false,
+        "latency": 199.9388039112091,
+        "error": "LLM call failed after 3 retries. Last error: Expecting property name enclosed in double quotes: line 18 column 27 (char 508)"
+      },
+      {
+        "scenario_id": "CP-S05",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "",
+        "compliance_correct": false,
+        "workflow_completed": false,
+        "latency": 193.11619091033936,
+        "error": "LLM call failed after 3 retries. Last error: 6 validation errors for RiskSubAgentOutput\ndimension\n  Input should be a valid string [type=string_type, input_value={'title': 'Dimension', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\nscore\n  Input should be a valid number [type=float_type, input_value={'title': 'Score', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nband\n  Input should be a valid string [type=string_type, input_value={'title': 'Band', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntop_factors\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...ctors', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nmissing_inputs\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...nputs', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nconfidence\n  Input should be a valid number [type=float_type, input_value={'default': 0.8, 'title':...ence', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type"
+      },
+      {
+        "scenario_id": "CP-S06",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "",
+        "compliance_correct": false,
+        "workflow_completed": false,
+        "latency": 215.65267205238342,
+        "error": "LLM call failed after 3 retries. Last error: 6 validation errors for RiskSubAgentOutput\ndimension\n  Input should be a valid string [type=string_type, input_value={'title': 'Dimension', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\nscore\n  Input should be a valid number [type=float_type, input_value={'title': 'Score', 'type'...number', 'default': 0.5}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nband\n  Input should be a valid string [type=string_type, input_value={'title': 'Band', 'type':...g', 'default': 'MEDIUM'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntop_factors\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin... Insured Value: $1-5M']}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nmissing_inputs\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin... 'array', 'default': []}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nconfidence\n  Input should be a valid number [type=float_type, input_value={'default': 0.8, 'title':...ence', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type"
+      },
+      {
+        "scenario_id": "CP-S07",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "",
+        "compliance_correct": false,
+        "workflow_completed": false,
+        "latency": 190.59477996826172,
+        "error": "LLM call failed after 3 retries. Last error: 6 validation errors for RiskSubAgentOutput\ndimension\n  Input should be a valid string [type=string_type, input_value={'title': 'Dimension', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\nscore\n  Input should be a valid number [type=float_type, input_value={'title': 'Score', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nband\n  Input should be a valid string [type=string_type, input_value={'title': 'Band', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntop_factors\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...ctors', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nmissing_inputs\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...nputs', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nconfidence\n  Input should be a valid number [type=float_type, input_value={'default': 0.8, 'title':...ence', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type"
+      },
+      {
+        "scenario_id": "CP-S08",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "",
+        "compliance_correct": false,
+        "workflow_completed": false,
+        "latency": 226.23293280601501,
+        "error": "LLM call failed after 3 retries. Last error: 1 validation error for RiskSubAgentOutput\ndimension\n  Input should be a valid string [type=string_type, input_value={'title': 'Property/Fleet', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type"
+      },
+      {
+        "scenario_id": "CP-S09",
+        "complexity": "LOW_CONFIDENCE_ESCALATION",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "",
+        "compliance_correct": false,
+        "workflow_completed": false,
+        "latency": 202.11294531822205,
+        "error": "LLM call failed after 3 retries. Last error: 6 validation errors for RiskSubAgentOutput\ndimension\n  Input should be a valid string [type=string_type, input_value={'title': 'Dimension', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\nscore\n  Input should be a valid number [type=float_type, input_value={'title': 'Score', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nband\n  Input should be a valid string [type=string_type, input_value={'title': 'Band', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntop_factors\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...ctors', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nmissing_inputs\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...nputs', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nconfidence\n  Input should be a valid number [type=float_type, input_value={'default': 0.8, 'title':...ence', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type"
+      },
+      {
+        "scenario_id": "CP-S10",
+        "complexity": "LOW_CONFIDENCE_ESCALATION",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "",
+        "compliance_correct": false,
+        "workflow_completed": false,
+        "latency": 148.75396513938904,
+        "error": "LLM call failed after 3 retries. Last error: 1 validation error for RiskSubAgentOutput\ndimension\n  Input should be a valid string [type=string_type, input_value={'title': 'Property/Fleet', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type"
+      },
+      {
+        "scenario_id": "CA-S01",
+        "complexity": "STRAIGHTFORWARD_APPROVAL",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "",
+        "compliance_correct": false,
+        "workflow_completed": false,
+        "latency": 332.4694049358368,
+        "error": "LLM call failed after 3 retries. Last error: 6 validation errors for RiskSubAgentOutput\ndimension\n  Input should be a valid string [type=string_type, input_value={'title': 'Dimension', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\nscore\n  Input should be a valid number [type=float_type, input_value={'title': 'Score', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nband\n  Input should be a valid string [type=string_type, input_value={'title': 'Band', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntop_factors\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...ctors', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nmissing_inputs\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...nputs', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nconfidence\n  Input should be a valid number [type=float_type, input_value={'default': 0.8, 'title':...ence', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type"
+      },
+      {
+        "scenario_id": "CA-S02",
+        "complexity": "STRAIGHTFORWARD_APPROVAL",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "",
+        "compliance_correct": false,
+        "workflow_completed": false,
+        "latency": 329.95860481262207,
+        "error": "LLM call failed after 3 retries. Last error: 6 validation errors for RiskSubAgentOutput\ndimension\n  Input should be a valid string [type=string_type, input_value={'title': 'Property/Fleet', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\nscore\n  Input should be a valid number [type=float_type, input_value={'title': 'Score', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nband\n  Input should be a valid string [type=string_type, input_value={'title': 'Band', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntop_factors\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...ctors', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nmissing_inputs\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...nputs', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nconfidence\n  Input should be a valid number [type=float_type, input_value={'default': 0.8, 'title':...ence', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type"
+      },
+      {
+        "scenario_id": "CA-S03",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "",
+        "compliance_correct": false,
+        "workflow_completed": false,
+        "latency": 307.9101860523224,
+        "error": "LLM call failed after 3 retries. Last error: 6 validation errors for RiskSubAgentOutput\ndimension\n  Input should be a valid string [type=string_type, input_value={'title': 'Property/Fleet', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\nscore\n  Input should be a valid number [type=float_type, input_value={'title': 'Score', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nband\n  Input should be a valid string [type=string_type, input_value={'title': 'Band', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntop_factors\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...ctors', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nmissing_inputs\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...nputs', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nconfidence\n  Input should be a valid number [type=float_type, input_value={'default': 0.8, 'title':...ence', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type"
+      },
+      {
+        "scenario_id": "CA-S04",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "",
+        "compliance_correct": false,
+        "workflow_completed": false,
+        "latency": 151.78489804267883,
+        "error": "LLM call failed after 3 retries. Last error: 1 validation error for IntakeOutput\nsubmission_type\n  Field required [type=missing, input_value={'additionalProperties': ...tion', 'type': 'object'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      },
+      {
+        "scenario_id": "CA-S05",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "",
+        "compliance_correct": false,
+        "workflow_completed": false,
+        "latency": 312.14020109176636,
+        "error": "LLM call failed after 3 retries. Last error: 6 validation errors for RiskSubAgentOutput\ndimension\n  Input should be a valid string [type=string_type, input_value={'title': 'Dimension', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\nscore\n  Input should be a valid number [type=float_type, input_value={'title': 'Score', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nband\n  Input should be a valid string [type=string_type, input_value={'title': 'Band', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntop_factors\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...ctors', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nmissing_inputs\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...nputs', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nconfidence\n  Input should be a valid number [type=float_type, input_value={'default': 0.8, 'title':...ence', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type"
+      },
+      {
+        "scenario_id": "CA-S06",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "",
+        "compliance_correct": false,
+        "workflow_completed": false,
+        "latency": 223.46505618095398,
+        "error": "LLM call failed after 3 retries. Last error: 6 validation errors for RiskSubAgentOutput\ndimension\n  Input should be a valid string [type=string_type, input_value={'title': 'Dimension', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\nscore\n  Input should be a valid number [type=float_type, input_value={'title': 'Score', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nband\n  Input should be a valid string [type=string_type, input_value={'title': 'Band', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntop_factors\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...ctors', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nmissing_inputs\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...nputs', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nconfidence\n  Input should be a valid number [type=float_type, input_value={'default': 0.8, 'title':...ence', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type"
+      },
+      {
+        "scenario_id": "CA-S07",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "",
+        "compliance_correct": false,
+        "workflow_completed": false,
+        "latency": 185.79997420310974,
+        "error": "LLM call failed after 3 retries. Last error: 6 validation errors for RiskSubAgentOutput\ndimension\n  Input should be a valid string [type=string_type, input_value={'title': 'Dimension', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\nscore\n  Input should be a valid number [type=float_type, input_value={'title': 'Score', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nband\n  Input should be a valid string [type=string_type, input_value={'title': 'Band', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntop_factors\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...ctors', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nmissing_inputs\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...nputs', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nconfidence\n  Input should be a valid number [type=float_type, input_value={'default': 0.8, 'title':...ence', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type"
+      },
+      {
+        "scenario_id": "CA-S08",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "",
+        "compliance_correct": false,
+        "workflow_completed": false,
+        "latency": 328.2183299064636,
+        "error": "LLM call failed after 3 retries. Last error: 6 validation errors for RiskSubAgentOutput\ndimension\n  Input should be a valid string [type=string_type, input_value={'title': 'Property/Fleet', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\nscore\n  Input should be a valid number [type=float_type, input_value={'title': 'Score', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nband\n  Input should be a valid string [type=string_type, input_value={'title': 'Band', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntop_factors\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...ctors', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nmissing_inputs\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...nputs', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nconfidence\n  Input should be a valid number [type=float_type, input_value={'default': 0.8, 'title':...ence', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type"
+      },
+      {
+        "scenario_id": "CA-S09",
+        "complexity": "LOW_CONFIDENCE_ESCALATION",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "",
+        "compliance_correct": false,
+        "workflow_completed": false,
+        "latency": 321.95958709716797,
+        "error": "LLM call failed after 3 retries. Last error: 6 validation errors for RiskSubAgentOutput\ndimension\n  Input should be a valid string [type=string_type, input_value={'title': 'Dimension', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\nscore\n  Input should be a valid number [type=float_type, input_value={'title': 'Score', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type\nband\n  Input should be a valid string [type=string_type, input_value={'title': 'Band', 'type': 'string'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/string_type\ntop_factors\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...ctors', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nmissing_inputs\n  Input should be a valid list [type=list_type, input_value={'items': {'type': 'strin...nputs', 'type': 'array'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/list_type\nconfidence\n  Input should be a valid number [type=float_type, input_value={'default': 0.8, 'title':...ence', 'type': 'number'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/float_type"
+      },
+      {
+        "scenario_id": "CA-S10",
+        "complexity": "LOW_CONFIDENCE_ESCALATION",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "",
+        "compliance_correct": false,
+        "workflow_completed": false,
+        "latency": 177.11968207359314,
+        "error": "LLM call failed after 3 retries. Last error: Expecting property name enclosed in double quotes: line 18 column 27 (char 508)"
+      }
+    ]
+  }
+}

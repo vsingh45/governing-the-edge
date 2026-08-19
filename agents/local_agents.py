@@ -12,7 +12,7 @@ Agents:
   4. compliance_node / compliance_retry_node
 """
 from __future__ import annotations
-from typing import Optional, List, Dict
+from typing import Optional, List, Dict, Any
 from pydantic import BaseModel, Field
 
 from config.settings import get_model
@@ -64,7 +64,11 @@ class IntakeOutput(BaseModel):
     explanation:            Dict    = Field(default_factory=dict)
 
 class RiskSubAgentOutput(BaseModel):
-    dimension:      str             # identifies which dimension this agent scored
+    # dimension is known by the caller (dimension_label) and overwritten after
+    # the call in _run_risk_subagent — not model-generated. Accept anything
+    # here so an unexpected model value (e.g. a schema-echo fragment) doesn't
+    # fail validation before we can discard it.
+    dimension:      Any             = ""
     score:          float           # [0,1] — higher = higher risk
     band:           str             # LOW | MEDIUM | HIGH | DECLINE
     top_factors:    List[str]       = Field(default_factory=list)
@@ -173,8 +177,21 @@ def intake_node(state: UnderwritingState) -> UnderwritingState:
         temperature=0.0,   # [INTAKE_TEMP0_PATCH]
     )
 
-    # Write structured fields to state
-    state.submission_type = result.submission_type.upper().replace(" ", "_")
+    # Write structured fields to state.
+    # Normalize by keyword rather than exact match: local models sometimes echo
+    # document phrasing ("COMMERCIAL PROPERTY SUBMISSION") instead of the enum
+    # value. HARD_STOP_CHECKS looks up by exact "COMMERCIAL_PROPERTY" /
+    # "COMMERCIAL_AUTO" key, so an unnormalized mismatch silently skips every
+    # hard-stop rule check instead of raising — keyword matching avoids that
+    # failure mode (found via gemma4:e4b returning "COMMERCIAL_PROPERTY_SUBMISSION"
+    # on CP-S06, which silently suppressed a genuine CP-01 violation).
+    raw_type = result.submission_type.upper()
+    if "AUTO" in raw_type:
+        state.submission_type = "COMMERCIAL_AUTO"
+    elif "PROPERTY" in raw_type:
+        state.submission_type = "COMMERCIAL_PROPERTY"
+    else:
+        state.submission_type = raw_type.replace(" ", "_")
     for field, value in result.model_dump().items():
         if field not in ("confidence", "explanation", "missing_fields") and value is not None:
             state.parsed_fields[field] = value
@@ -214,7 +231,7 @@ def _run_risk_subagent(
     state._tool_results[agent_name] = tool_payload
     tool_json = str(tool_payload) if tool_payload else "(no external tool output)"
 
-    return llm_call(
+    result = llm_call(
         model=get_model("local"),
         system_prompt=(
             f"You are a specialized insurance risk assessor evaluating the {dimension_label} dimension only. "
@@ -232,6 +249,9 @@ def _run_risk_subagent(
         ),
         response_schema=RiskSubAgentOutput,
     )
+    # dimension is known by the caller, not model-generated — see schema comment.
+    result.dimension = dimension_label
+    return result
 
 
 @wrap_agent_with_tracking("property_risk", tool_names=["lookup_fema_flood_zone", "lookup_wildfire_risk"])

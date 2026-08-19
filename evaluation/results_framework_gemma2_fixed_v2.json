@@ -1,0 +1,209 @@
+{
+  "governing_the_edge": {
+    "compliance_accuracy": 0.75,
+    "completion_rate": 0.85,
+    "avg_latency": 220.54800070524215,
+    "results": [
+      {
+        "scenario_id": "CP-S01",
+        "complexity": "STRAIGHTFORWARD_APPROVAL",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 228.06276082992554,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S02",
+        "complexity": "STRAIGHTFORWARD_APPROVAL",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": false,
+        "workflow_completed": true,
+        "latency": 198.47631096839905,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S03",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 226.96045899391174,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S04",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "",
+        "compliance_correct": false,
+        "workflow_completed": false,
+        "latency": 193.68225812911987,
+        "error": "LLM call failed after 3 retries. Last error: Expecting property name enclosed in double quotes: line 18 column 27 (char 508)"
+      },
+      {
+        "scenario_id": "CP-S05",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 238.64602613449097,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S06",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 154.7045021057129,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S07",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 136.12503814697266,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S08",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 152.69280004501343,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S09",
+        "complexity": "LOW_CONFIDENCE_ESCALATION",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 217.90363693237305,
+        "error": ""
+      },
+      {
+        "scenario_id": "CP-S10",
+        "complexity": "LOW_CONFIDENCE_ESCALATION",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 201.7601330280304,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S01",
+        "complexity": "STRAIGHTFORWARD_APPROVAL",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 332.57322120666504,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S02",
+        "complexity": "STRAIGHTFORWARD_APPROVAL",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 317.0691440105438,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S03",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 293.74682807922363,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S04",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "",
+        "compliance_correct": false,
+        "workflow_completed": false,
+        "latency": 145.2650589942932,
+        "error": "LLM call failed after 3 retries. Last error: 1 validation error for IntakeOutput\nsubmission_type\n  Field required [type=missing, input_value={'additionalProperties': ...tion', 'type': 'object'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+      },
+      {
+        "scenario_id": "CA-S05",
+        "complexity": "WARNING_COMPLIANCE",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 305.24665093421936,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S06",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 142.25897121429443,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S07",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "FAIL",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 119.09162402153015,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S08",
+        "complexity": "HARD_STOP_VIOLATION",
+        "ground_truth_compliance": "FAIL",
+        "predicted_compliance": "PASS",
+        "compliance_correct": false,
+        "workflow_completed": true,
+        "latency": 323.4357810020447,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S09",
+        "complexity": "LOW_CONFIDENCE_ESCALATION",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "PASS",
+        "compliance_correct": true,
+        "workflow_completed": true,
+        "latency": 311.2104241847992,
+        "error": ""
+      },
+      {
+        "scenario_id": "CA-S10",
+        "complexity": "LOW_CONFIDENCE_ESCALATION",
+        "ground_truth_compliance": "PASS",
+        "predicted_compliance": "",
+        "compliance_correct": false,
+        "workflow_completed": false,
+        "latency": 172.04838514328003,
+        "error": "LLM call failed after 3 retries. Last error: Expecting property name enclosed in double quotes: line 18 column 27 (char 508)"
+      }
+    ]
+  }
+}

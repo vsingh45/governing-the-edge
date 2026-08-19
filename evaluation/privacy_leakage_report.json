@@ -1,0 +1,11 @@
+{
+  "total_payloads": 17,
+  "total_sensitive_occurrences": 0,
+  "per_field_breakdown": {},
+  "fields_not_present_in_dataset": [
+    "ein",
+    "driver_license_number",
+    "driver_legal_name"
+  ],
+  "flagged_scenarios": []
+}

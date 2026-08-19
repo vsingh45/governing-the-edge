@@ -1,1435 +1,1321 @@
 {
-  "error_records": [],
+  "error_records": [
+    {
+      "scenario_id": "CP-S04",
+      "agent_name": "intake",
+      "error_category": "LLM_PARSE_ERROR",
+      "error_detail": "Unclassified error (defaulting to PARSE_ERROR): LLM call failed after 3 retries. Last error: Expecting property name enclosed in double quotes: line 18 column 27 (char 508)",
+      "timestamp": "2026-08-19T07:18:48.386809",
+      "retry_count": 0,
+      "final_output": "LLM call failed after 3 retries. Last error: Expecting property name enclosed in double quotes: line 18 column 27 (char 508)"
+    },
+    {
+      "scenario_id": "CA-S04",
+      "agent_name": "intake",
+      "error_category": "SCHEMA_VALIDATION",
+      "error_detail": "Pydantic schema validation failed: LLM call failed after 3 retries. Last error: 1 validation error for IntakeOutput\nsubmission_type\n  Field required [type=missing, input_value={'additionalProperties': ...tion', 'type': 'object'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing",
+      "timestamp": "2026-08-19T07:55:57.307034",
+      "retry_count": 0,
+      "final_output": "LLM call failed after 3 retries. Last error: 1 validation error for IntakeOutput\nsubmission_type\n  Field required [type=missing, input_value={'additionalProperties': ...tion', 'type': 'object'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.13/v/missing"
+    },
+    {
+      "scenario_id": "CA-S10",
+      "agent_name": "intake",
+      "error_category": "LLM_PARSE_ERROR",
+      "error_detail": "Unclassified error (defaulting to PARSE_ERROR): LLM call failed after 3 retries. Last error: Expecting property name enclosed in double quotes: line 18 column 27 (char 508)",
+      "timestamp": "2026-08-19T08:18:42.826109",
+      "retry_count": 0,
+      "final_output": "LLM call failed after 3 retries. Last error: Expecting property name enclosed in double quotes: line 18 column 27 (char 508)"
+    }
+  ],
   "success_records": [
     {
       "scenario_id": "CP-S01",
       "agent_name": "document_parser",
-      "latency_ms": 26207.470178604126,
+      "latency_ms": 54011.6069316864,
       "confidence": 0.8,
       "tool_calls": [],
       "retry_count": 0,
-      "timestamp": "2026-06-21T22:00:08.969472"
+      "timestamp": "2026-08-19T07:05:32.430084"
     },
     {
       "scenario_id": "CP-S01",
       "agent_name": "intake",
-      "latency_ms": 31397.706985473633,
-      "confidence": 1.0,
+      "latency_ms": 11278.663158416748,
+      "confidence": 0.8,
       "tool_calls": [],
       "retry_count": 0,
-      "timestamp": "2026-06-21T22:00:40.370498"
+      "timestamp": "2026-08-19T07:05:43.709293"
     },
     {
       "scenario_id": "CP-S01",
       "agent_name": "geographic_risk",
-      "latency_ms": 37198.74882698059,
-      "confidence": 0.1,
+      "latency_ms": 10265.692949295044,
+      "confidence": 0.8,
       "tool_calls": [],
       "retry_count": 0,
-      "timestamp": "2026-06-21T22:01:17.572801"
+      "timestamp": "2026-08-19T07:05:53.978560"
     },
     {
       "scenario_id": "CP-S01",
       "agent_name": "business_risk",
-      "latency_ms": 77085.11018753052,
-      "confidence": 0.9,
+      "latency_ms": 55774.14393424988,
+      "confidence": 0.8,
       "tool_calls": [
         "dnb"
       ],
       "retry_count": 0,
-      "timestamp": "2026-06-21T22:01:57.456826"
+      "timestamp": "2026-08-19T07:06:39.484323"
     },
     {
       "scenario_id": "CP-S01",
       "agent_name": "property_risk",
-      "latency_ms": 120520.84302902222,
-      "confidence": 0.75,
+      "latency_ms": 67584.18416976929,
+      "confidence": 0.8,
       "tool_calls": [
         "fema_flood_zone",
         "wildfire_risk"
       ],
       "retry_count": 0,
-      "timestamp": "2026-06-21T22:02:40.895809"
+      "timestamp": "2026-08-19T07:06:51.298533"
     },
     {
       "scenario_id": "CP-S01",
       "agent_name": "risk_aggregator",
-      "latency_ms": 10698.705911636353,
-      "confidence": 0.65,
+      "latency_ms": 11233.607292175293,
+      "confidence": 0.8,
       "tool_calls": [],
       "retry_count": 0,
-      "timestamp": "2026-06-21T22:02:51.596218"
+      "timestamp": "2026-08-19T07:07:02.532735"
     },
     {
       "scenario_id": "CP-S01",
       "agent_name": "compliance",
-      "latency_ms": 29109.742879867554,
-      "confidence": 1.0,
+      "latency_ms": 47891.80612564087,
+      "confidence": 0.9,
       "tool_calls": [],
       "retry_count": 0,
-      "timestamp": "2026-06-21T22:03:20.706366"
+      "timestamp": "2026-08-19T07:07:50.425262"
     },
     {
       "scenario_id": "CP-S01",
       "agent_name": "coverage_gap",
-      "latency_ms": 32534.11602973938,
-      "confidence": 0.87,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:03:53.241525"
-    },
-    {
-      "scenario_id": "CP-S02",
-      "agent_name": "document_parser",
-      "latency_ms": 29360.86893081665,
-      "confidence": 0.8,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:04:22.606835"
-    },
-    {
-      "scenario_id": "CP-S02",
-      "agent_name": "intake",
-      "latency_ms": 32460.684061050415,
-      "confidence": 1.0,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:04:55.067999"
-    },
-    {
-      "scenario_id": "CP-S02",
-      "agent_name": "property_risk",
-      "latency_ms": 45827.518939971924,
-      "confidence": 0.9,
-      "tool_calls": [
-        "fema_flood_zone",
-        "wildfire_risk"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:05:40.897490"
-    },
-    {
-      "scenario_id": "CP-S02",
-      "agent_name": "business_risk",
-      "latency_ms": 84656.68416023254,
-      "confidence": 0.9,
-      "tool_calls": [
-        "dnb"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:06:19.725190"
-    },
-    {
-      "scenario_id": "CP-S02",
-      "agent_name": "geographic_risk",
-      "latency_ms": 119235.76593399048,
-      "confidence": 0.3,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:06:54.305184"
-    },
-    {
-      "scenario_id": "CP-S02",
-      "agent_name": "risk_aggregator",
-      "latency_ms": 15092.702150344849,
-      "confidence": 0.6,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:07:09.398718"
-    },
-    {
-      "scenario_id": "CP-S02",
-      "agent_name": "compliance",
-      "latency_ms": 33508.12816619873,
-      "confidence": 1.0,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:07:42.907439"
-    },
-    {
-      "scenario_id": "CP-S02",
-      "agent_name": "coverage_gap",
-      "latency_ms": 34950.52099227905,
-      "confidence": 0.87,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:08:17.858747"
-    },
-    {
-      "scenario_id": "CP-S03",
-      "agent_name": "document_parser",
-      "latency_ms": 26929.47769165039,
-      "confidence": 0.8,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:08:44.792389"
-    },
-    {
-      "scenario_id": "CP-S03",
-      "agent_name": "intake",
-      "latency_ms": 38594.3648815155,
-      "confidence": 0.98,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:09:23.387337"
-    },
-    {
-      "scenario_id": "CP-S03",
-      "agent_name": "business_risk",
-      "latency_ms": 47667.97399520874,
-      "confidence": 0.8,
-      "tool_calls": [
-        "dnb"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:10:11.055861"
-    },
-    {
-      "scenario_id": "CP-S03",
-      "agent_name": "geographic_risk",
-      "latency_ms": 81529.65211868286,
-      "confidence": 0.2,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:10:44.918552"
-    },
-    {
-      "scenario_id": "CP-S03",
-      "agent_name": "property_risk",
-      "latency_ms": 140796.90217971802,
-      "confidence": 0.9,
-      "tool_calls": [
-        "fema_flood_zone",
-        "wildfire_risk"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:11:44.186722"
-    },
-    {
-      "scenario_id": "CP-S03",
-      "agent_name": "risk_aggregator",
-      "latency_ms": 12946.341037750244,
-      "confidence": 0.65,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:11:57.134673"
-    },
-    {
-      "scenario_id": "CP-S03",
-      "agent_name": "compliance",
-      "latency_ms": 36843.00708770752,
-      "confidence": 1.0,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:12:33.978620"
-    },
-    {
-      "scenario_id": "CP-S03",
-      "agent_name": "coverage_gap",
-      "latency_ms": 74550.85182189941,
-      "confidence": 0.91,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:13:48.537933"
-    },
-    {
-      "scenario_id": "CP-S04",
-      "agent_name": "document_parser",
-      "latency_ms": 24208.715200424194,
-      "confidence": 0.8,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:14:12.751311"
-    },
-    {
-      "scenario_id": "CP-S04",
-      "agent_name": "intake",
-      "latency_ms": 41798.96903038025,
-      "confidence": 1.0,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:14:54.550675"
-    },
-    {
-      "scenario_id": "CP-S04",
-      "agent_name": "geographic_risk",
-      "latency_ms": 35852.983713150024,
-      "confidence": 0.2,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:15:30.406482"
-    },
-    {
-      "scenario_id": "CP-S04",
-      "agent_name": "property_risk",
-      "latency_ms": 83148.98300170898,
-      "confidence": 0.9,
-      "tool_calls": [
-        "fema_flood_zone",
-        "wildfire_risk"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:16:17.703419"
-    },
-    {
-      "scenario_id": "CP-S04",
-      "agent_name": "business_risk",
-      "latency_ms": 125052.01625823975,
-      "confidence": 0.9,
-      "tool_calls": [
-        "dnb"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:16:59.604396"
-    },
-    {
-      "scenario_id": "CP-S04",
-      "agent_name": "risk_aggregator",
-      "latency_ms": 11198.287010192871,
-      "confidence": 0.72,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:17:10.803914"
-    },
-    {
-      "scenario_id": "CP-S04",
-      "agent_name": "compliance",
-      "latency_ms": 65021.575927734375,
-      "confidence": 1.0,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:18:15.826135"
-    },
-    {
-      "scenario_id": "CP-S05",
-      "agent_name": "document_parser",
-      "latency_ms": 20898.074865341187,
-      "confidence": 0.8,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:18:36.730596"
-    },
-    {
-      "scenario_id": "CP-S05",
-      "agent_name": "intake",
-      "latency_ms": 43241.167068481445,
-      "confidence": 1.0,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:19:19.972169"
-    },
-    {
-      "scenario_id": "CP-S05",
-      "agent_name": "property_risk",
-      "latency_ms": 51359.647274017334,
-      "confidence": 0.75,
-      "tool_calls": [
-        "fema_flood_zone",
-        "wildfire_risk"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:20:11.335119"
-    },
-    {
-      "scenario_id": "CP-S05",
-      "agent_name": "geographic_risk",
-      "latency_ms": 86027.90904045105,
-      "confidence": 0.2,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:20:46.002508"
-    },
-    {
-      "scenario_id": "CP-S05",
-      "agent_name": "business_risk",
-      "latency_ms": 142385.93697547913,
-      "confidence": 0.9,
-      "tool_calls": [
-        "dnb"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:21:42.359454"
-    },
-    {
-      "scenario_id": "CP-S05",
-      "agent_name": "risk_aggregator",
-      "latency_ms": 12664.610862731934,
-      "confidence": 0.65,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:21:55.026108"
-    },
-    {
-      "scenario_id": "CP-S05",
-      "agent_name": "compliance",
-      "latency_ms": 38340.71612358093,
-      "confidence": 1.0,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:22:33.367193"
-    },
-    {
-      "scenario_id": "CP-S05",
-      "agent_name": "coverage_gap",
-      "latency_ms": 60203.50122451782,
-      "confidence": 0.91,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:23:33.571563"
-    },
-    {
-      "scenario_id": "CP-S06",
-      "agent_name": "document_parser",
-      "latency_ms": 20093.957901000977,
-      "confidence": 0.8,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:23:53.668873"
-    },
-    {
-      "scenario_id": "CP-S06",
-      "agent_name": "intake",
-      "latency_ms": 35582.11922645569,
-      "confidence": 1.0,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:24:29.251628"
-    },
-    {
-      "scenario_id": "CP-S06",
-      "agent_name": "business_risk",
-      "latency_ms": 58014.293909072876,
-      "confidence": 0.9,
-      "tool_calls": [
-        "dnb"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:25:27.266644"
-    },
-    {
-      "scenario_id": "CP-S06",
-      "agent_name": "property_risk",
-      "latency_ms": 102375.38576126099,
-      "confidence": 0.9,
-      "tool_calls": [
-        "fema_flood_zone",
-        "wildfire_risk"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:26:11.629257"
-    },
-    {
-      "scenario_id": "CP-S06",
-      "agent_name": "geographic_risk",
-      "latency_ms": 137004.5621395111,
-      "confidence": 0.1,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:26:46.257741"
-    },
-    {
-      "scenario_id": "CP-S06",
-      "agent_name": "risk_aggregator",
-      "latency_ms": 15985.24522781372,
-      "confidence": 0.62,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:27:02.244299"
-    },
-    {
-      "scenario_id": "CP-S06",
-      "agent_name": "compliance",
-      "latency_ms": 0.12612342834472656,
-      "confidence": 1.0,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:27:02.245555"
-    },
-    {
-      "scenario_id": "CP-S07",
-      "agent_name": "document_parser",
-      "latency_ms": 19526.511192321777,
-      "confidence": 0.8,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:27:21.774102"
-    },
-    {
-      "scenario_id": "CP-S07",
-      "agent_name": "intake",
-      "latency_ms": 36786.55290603638,
-      "confidence": 1.0,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:27:58.561386"
-    },
-    {
-      "scenario_id": "CP-S07",
-      "agent_name": "geographic_risk",
-      "latency_ms": 28867.06590652466,
-      "confidence": 0.2,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:28:27.429822"
-    },
-    {
-      "scenario_id": "CP-S07",
-      "agent_name": "business_risk",
-      "latency_ms": 72903.71990203857,
-      "confidence": 0.9,
-      "tool_calls": [
-        "dnb"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:29:11.465556"
-    },
-    {
-      "scenario_id": "CP-S07",
-      "agent_name": "property_risk",
-      "latency_ms": 125353.39689254761,
-      "confidence": 0.9,
-      "tool_calls": [
-        "fema_flood_zone",
-        "wildfire_risk"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:30:03.916800"
-    },
-    {
-      "scenario_id": "CP-S07",
-      "agent_name": "risk_aggregator",
-      "latency_ms": 13157.888889312744,
-      "confidence": 0.65,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:30:17.088516"
-    },
-    {
-      "scenario_id": "CP-S07",
-      "agent_name": "compliance",
-      "latency_ms": 0.10395050048828125,
-      "confidence": 1.0,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:30:17.089412"
-    },
-    {
-      "scenario_id": "CP-S08",
-      "agent_name": "document_parser",
-      "latency_ms": 23042.474031448364,
-      "confidence": 0.8,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:30:40.133995"
-    },
-    {
-      "scenario_id": "CP-S08",
-      "agent_name": "intake",
-      "latency_ms": 34032.41014480591,
-      "confidence": 1.0,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:31:14.167244"
-    },
-    {
-      "scenario_id": "CP-S08",
-      "agent_name": "property_risk",
-      "latency_ms": 40935.54091453552,
-      "confidence": 0.9,
-      "tool_calls": [
-        "fema_flood_zone",
-        "wildfire_risk"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:31:55.106288"
-    },
-    {
-      "scenario_id": "CP-S08",
-      "agent_name": "geographic_risk",
-      "latency_ms": 76003.30924987793,
-      "confidence": 0.15,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:32:30.172992"
-    },
-    {
-      "scenario_id": "CP-S08",
-      "agent_name": "business_risk",
-      "latency_ms": 123374.61924552917,
-      "confidence": 0.9,
-      "tool_calls": [
-        "dnb"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:33:17.542831"
-    },
-    {
-      "scenario_id": "CP-S08",
-      "agent_name": "risk_aggregator",
-      "latency_ms": 14107.368230819702,
-      "confidence": 0.65,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:33:31.652535"
-    },
-    {
-      "scenario_id": "CP-S08",
-      "agent_name": "compliance",
-      "latency_ms": 0.09393692016601562,
-      "confidence": 1.0,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:33:31.653378"
-    },
-    {
-      "scenario_id": "CP-S09",
-      "agent_name": "document_parser",
-      "latency_ms": 20898.136138916016,
-      "confidence": 0.8,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:33:52.554580"
-    },
-    {
-      "scenario_id": "CP-S09",
-      "agent_name": "intake",
-      "latency_ms": 53206.4471244812,
-      "confidence": 1.0,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:34:45.761633"
-    },
-    {
-      "scenario_id": "CP-S09",
-      "agent_name": "geographic_risk",
-      "latency_ms": 35450.15025138855,
-      "confidence": 0.3,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:35:21.214156"
-    },
-    {
-      "scenario_id": "CP-S09",
-      "agent_name": "business_risk",
-      "latency_ms": 92727.20098495483,
-      "confidence": 0.9,
-      "tool_calls": [
-        "dnb"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:36:18.489671"
-    },
-    {
-      "scenario_id": "CP-S09",
-      "agent_name": "property_risk",
-      "latency_ms": 151001.0678768158,
-      "confidence": 0.9,
-      "tool_calls": [
-        "fema_flood_zone",
-        "wildfire_risk"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:37:16.766038"
-    },
-    {
-      "scenario_id": "CP-S09",
-      "agent_name": "risk_aggregator",
-      "latency_ms": 19687.062978744507,
-      "confidence": 0.72,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:37:36.455346"
-    },
-    {
-      "scenario_id": "CP-S09",
-      "agent_name": "compliance",
-      "latency_ms": 40596.81677818298,
-      "confidence": 1.0,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:38:17.053110"
-    },
-    {
-      "scenario_id": "CP-S09",
-      "agent_name": "coverage_gap",
-      "latency_ms": 61695.06096839905,
-      "confidence": 0.88,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:39:18.749438"
-    },
-    {
-      "scenario_id": "CP-S10",
-      "agent_name": "document_parser",
-      "latency_ms": 23735.862970352173,
-      "confidence": 0.8,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:39:42.488664"
-    },
-    {
-      "scenario_id": "CP-S10",
-      "agent_name": "intake",
-      "latency_ms": 46276.737689971924,
-      "confidence": 1.0,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:40:28.765758"
-    },
-    {
-      "scenario_id": "CP-S10",
-      "agent_name": "property_risk",
-      "latency_ms": 53653.78785133362,
-      "confidence": 0.75,
-      "tool_calls": [
-        "fema_flood_zone",
-        "wildfire_risk"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:41:22.422653"
-    },
-    {
-      "scenario_id": "CP-S10",
-      "agent_name": "business_risk",
-      "latency_ms": 108982.82980918884,
-      "confidence": 0.75,
-      "tool_calls": [
-        "dnb"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:42:17.749635"
-    },
-    {
-      "scenario_id": "CP-S10",
-      "agent_name": "geographic_risk",
-      "latency_ms": 145923.13289642334,
-      "confidence": 0.2,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:42:54.691321"
-    },
-    {
-      "scenario_id": "CP-S10",
-      "agent_name": "risk_aggregator",
-      "latency_ms": 17674.498081207275,
-      "confidence": 0.62,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:43:12.367723"
-    },
-    {
-      "scenario_id": "CP-S10",
-      "agent_name": "compliance",
-      "latency_ms": 40035.789012908936,
-      "confidence": 1.0,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:43:52.404523"
-    },
-    {
-      "scenario_id": "CP-S10",
-      "agent_name": "coverage_gap",
-      "latency_ms": 58629.066944122314,
-      "confidence": 0.88,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:44:51.034383"
-    },
-    {
-      "scenario_id": "CA-S01",
-      "agent_name": "document_parser",
-      "latency_ms": 23595.330953598022,
-      "confidence": 0.8,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:45:14.632968"
-    },
-    {
-      "scenario_id": "CA-S01",
-      "agent_name": "intake",
-      "latency_ms": 41865.68784713745,
-      "confidence": 1.0,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:45:56.500077"
-    },
-    {
-      "scenario_id": "CA-S01",
-      "agent_name": "geographic_risk",
-      "latency_ms": 37001.95288658142,
-      "confidence": 0.5,
-      "tool_calls": [
-        "mvr"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:46:33.503706"
-    },
-    {
-      "scenario_id": "CA-S01",
-      "agent_name": "business_risk",
-      "latency_ms": 86745.87202072144,
-      "confidence": 0.7,
-      "tool_calls": [
-        "dnb",
-        "dot_safety"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:47:23.246486"
-    },
-    {
-      "scenario_id": "CA-S01",
-      "agent_name": "property_risk",
-      "latency_ms": 121408.75601768494,
-      "confidence": 0.75,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:47:57.911438"
-    },
-    {
-      "scenario_id": "CA-S01",
-      "agent_name": "risk_aggregator",
-      "latency_ms": 11259.275197982788,
-      "confidence": 0.63,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:48:09.172760"
-    },
-    {
-      "scenario_id": "CA-S01",
-      "agent_name": "compliance",
-      "latency_ms": 27887.094020843506,
-      "confidence": 0.9,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:48:37.060193"
-    },
-    {
-      "scenario_id": "CA-S01",
-      "agent_name": "coverage_gap",
-      "latency_ms": 26832.717180252075,
+      "latency_ms": 41506.01387023926,
       "confidence": 0.82,
       "tool_calls": [],
       "retry_count": 0,
-      "timestamp": "2026-06-21T22:49:03.894364"
+      "timestamp": "2026-08-19T07:08:31.932484"
     },
     {
-      "scenario_id": "CA-S02",
+      "scenario_id": "CP-S02",
       "agent_name": "document_parser",
-      "latency_ms": 20164.72601890564,
+      "latency_ms": 44434.154987335205,
       "confidence": 0.8,
       "tool_calls": [],
       "retry_count": 0,
-      "timestamp": "2026-06-21T22:49:24.062185"
+      "timestamp": "2026-08-19T07:09:16.369346"
     },
     {
-      "scenario_id": "CA-S02",
+      "scenario_id": "CP-S02",
       "agent_name": "intake",
-      "latency_ms": 39631.31308555603,
-      "confidence": 1.0,
+      "latency_ms": 19096.61293029785,
+      "confidence": 0.8,
       "tool_calls": [],
       "retry_count": 0,
-      "timestamp": "2026-06-21T22:50:03.694269"
+      "timestamp": "2026-08-19T07:09:35.466309"
     },
     {
-      "scenario_id": "CA-S02",
+      "scenario_id": "CP-S02",
       "agent_name": "property_risk",
-      "latency_ms": 35650.96426010132,
-      "confidence": 0.6,
-      "tool_calls": [],
+      "latency_ms": 60002.75206565857,
+      "confidence": 0.8,
+      "tool_calls": [
+        "fema_flood_zone",
+        "wildfire_risk"
+      ],
       "retry_count": 0,
-      "timestamp": "2026-06-21T22:50:39.348252"
+      "timestamp": "2026-08-19T07:10:35.474833"
     },
     {
-      "scenario_id": "CA-S02",
+      "scenario_id": "CP-S02",
       "agent_name": "geographic_risk",
-      "latency_ms": 67339.6258354187,
-      "confidence": 0.5,
+      "latency_ms": 70375.10180473328,
+      "confidence": 0.8,
       "tool_calls": [],
       "retry_count": 0,
-      "timestamp": "2026-06-21T22:51:11.035826"
+      "timestamp": "2026-08-19T07:10:45.845065"
     },
     {
-      "scenario_id": "CA-S02",
+      "scenario_id": "CP-S02",
       "agent_name": "business_risk",
-      "latency_ms": 115920.26424407959,
-      "confidence": 0.65,
+      "latency_ms": 82079.2019367218,
+      "confidence": 0.8,
       "tool_calls": [
         "dnb"
       ],
       "retry_count": 0,
-      "timestamp": "2026-06-21T22:51:59.615204"
+      "timestamp": "2026-08-19T07:10:57.546316"
+    },
+    {
+      "scenario_id": "CP-S02",
+      "agent_name": "risk_aggregator",
+      "latency_ms": 8191.949129104614,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:11:05.738912"
+    },
+    {
+      "scenario_id": "CP-S02",
+      "agent_name": "compliance",
+      "latency_ms": 42735.48102378845,
+      "confidence": 0.9,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:11:48.474997"
+    },
+    {
+      "scenario_id": "CP-S03",
+      "agent_name": "document_parser",
+      "latency_ms": 31216.893196105957,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:12:19.693424"
+    },
+    {
+      "scenario_id": "CP-S03",
+      "agent_name": "intake",
+      "latency_ms": 12449.045896530151,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:12:32.143016"
+    },
+    {
+      "scenario_id": "CP-S03",
+      "agent_name": "geographic_risk",
+      "latency_ms": 57218.579053878784,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:13:29.364543"
+    },
+    {
+      "scenario_id": "CP-S03",
+      "agent_name": "property_risk",
+      "latency_ms": 69013.26012611389,
+      "confidence": 0.8,
+      "tool_calls": [
+        "fema_flood_zone",
+        "wildfire_risk"
+      ],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:13:41.161496"
+    },
+    {
+      "scenario_id": "CP-S03",
+      "agent_name": "business_risk",
+      "latency_ms": 81007.4291229248,
+      "confidence": 0.8,
+      "tool_calls": [
+        "dnb"
+      ],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:13:53.151551"
+    },
+    {
+      "scenario_id": "CP-S03",
+      "agent_name": "risk_aggregator",
+      "latency_ms": 14095.501899719238,
+      "confidence": 0.78,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:14:07.247672"
+    },
+    {
+      "scenario_id": "CP-S03",
+      "agent_name": "compliance",
+      "latency_ms": 47768.49389076233,
+      "confidence": 0.9,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:14:55.016535"
+    },
+    {
+      "scenario_id": "CP-S03",
+      "agent_name": "coverage_gap",
+      "latency_ms": 39932.29103088379,
+      "confidence": 0.91,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:15:34.949722"
+    },
+    {
+      "scenario_id": "CP-S04",
+      "agent_name": "document_parser",
+      "latency_ms": 52809.14521217346,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:16:27.760638"
+    },
+    {
+      "scenario_id": "CP-S05",
+      "agent_name": "document_parser",
+      "latency_ms": 46094.011068344116,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:19:34.482113"
+    },
+    {
+      "scenario_id": "CP-S05",
+      "agent_name": "intake",
+      "latency_ms": 11486.701726913452,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:19:45.969126"
+    },
+    {
+      "scenario_id": "CP-S05",
+      "agent_name": "business_risk",
+      "latency_ms": 62344.1641330719,
+      "confidence": 0.8,
+      "tool_calls": [
+        "dnb"
+      ],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:20:48.314365"
+    },
+    {
+      "scenario_id": "CP-S05",
+      "agent_name": "property_risk",
+      "latency_ms": 73939.39185142517,
+      "confidence": 0.8,
+      "tool_calls": [
+        "fema_flood_zone",
+        "wildfire_risk"
+      ],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:20:59.913399"
+    },
+    {
+      "scenario_id": "CP-S05",
+      "agent_name": "geographic_risk",
+      "latency_ms": 84357.52487182617,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:21:10.329309"
+    },
+    {
+      "scenario_id": "CP-S05",
+      "agent_name": "risk_aggregator",
+      "latency_ms": 13295.26400566101,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:21:23.625076"
+    },
+    {
+      "scenario_id": "CP-S05",
+      "agent_name": "compliance",
+      "latency_ms": 47535.59994697571,
+      "confidence": 0.9,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:22:11.161063"
+    },
+    {
+      "scenario_id": "CP-S05",
+      "agent_name": "coverage_gap",
+      "latency_ms": 43824.26595687866,
+      "confidence": 0.82,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:22:54.985748"
+    },
+    {
+      "scenario_id": "CP-S06",
+      "agent_name": "document_parser",
+      "latency_ms": 42389.34898376465,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:23:37.377342"
+    },
+    {
+      "scenario_id": "CP-S06",
+      "agent_name": "intake",
+      "latency_ms": 17923.980951309204,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:23:55.301691"
+    },
+    {
+      "scenario_id": "CP-S06",
+      "agent_name": "geographic_risk",
+      "latency_ms": 58386.01231575012,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:24:53.691046"
+    },
+    {
+      "scenario_id": "CP-S06",
+      "agent_name": "property_risk",
+      "latency_ms": 70011.73567771912,
+      "confidence": 0.8,
+      "tool_calls": [
+        "fema_flood_zone",
+        "wildfire_risk"
+      ],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:25:05.317718"
+    },
+    {
+      "scenario_id": "CP-S06",
+      "agent_name": "business_risk",
+      "latency_ms": 81852.73790359497,
+      "confidence": 0.8,
+      "tool_calls": [
+        "dnb"
+      ],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:25:17.155526"
+    },
+    {
+      "scenario_id": "CP-S06",
+      "agent_name": "risk_aggregator",
+      "latency_ms": 15590.852975845337,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:25:32.747386"
+    },
+    {
+      "scenario_id": "CP-S06",
+      "agent_name": "compliance",
+      "latency_ms": 0.017881393432617188,
+      "confidence": 1.0,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:25:32.747718"
+    },
+    {
+      "scenario_id": "CP-S07",
+      "agent_name": "document_parser",
+      "latency_ms": 27959.3288898468,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:26:00.708897"
+    },
+    {
+      "scenario_id": "CP-S07",
+      "agent_name": "intake",
+      "latency_ms": 18157.747983932495,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:26:18.867446"
+    },
+    {
+      "scenario_id": "CP-S07",
+      "agent_name": "business_risk",
+      "latency_ms": 59778.96809577942,
+      "confidence": 0.8,
+      "tool_calls": [
+        "dnb"
+      ],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:27:18.646952"
+    },
+    {
+      "scenario_id": "CP-S07",
+      "agent_name": "geographic_risk",
+      "latency_ms": 70121.64115905762,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:27:28.991447"
+    },
+    {
+      "scenario_id": "CP-S07",
+      "agent_name": "property_risk",
+      "latency_ms": 81555.46808242798,
+      "confidence": 0.8,
+      "tool_calls": [
+        "fema_flood_zone",
+        "wildfire_risk"
+      ],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:27:40.426416"
+    },
+    {
+      "scenario_id": "CP-S07",
+      "agent_name": "risk_aggregator",
+      "latency_ms": 12481.515884399414,
+      "confidence": 0.78,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:27:52.908680"
+    },
+    {
+      "scenario_id": "CP-S07",
+      "agent_name": "compliance",
+      "latency_ms": 0.0209808349609375,
+      "confidence": 1.0,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:27:52.909046"
+    },
+    {
+      "scenario_id": "CP-S08",
+      "agent_name": "document_parser",
+      "latency_ms": 55929.08000946045,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:28:48.839896"
+    },
+    {
+      "scenario_id": "CP-S08",
+      "agent_name": "intake",
+      "latency_ms": 19981.938362121582,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:29:08.822199"
+    },
+    {
+      "scenario_id": "CP-S08",
+      "agent_name": "property_risk",
+      "latency_ms": 43018.216133117676,
+      "confidence": 0.8,
+      "tool_calls": [
+        "fema_flood_zone",
+        "wildfire_risk"
+      ],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:29:51.843845"
+    },
+    {
+      "scenario_id": "CP-S08",
+      "agent_name": "geographic_risk",
+      "latency_ms": 53471.40192985535,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:30:02.295988"
+    },
+    {
+      "scenario_id": "CP-S08",
+      "agent_name": "business_risk",
+      "latency_ms": 66639.74094390869,
+      "confidence": 0.8,
+      "tool_calls": [
+        "dnb"
+      ],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:30:15.463151"
+    },
+    {
+      "scenario_id": "CP-S08",
+      "agent_name": "risk_aggregator",
+      "latency_ms": 11494.150161743164,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:30:26.957881"
+    },
+    {
+      "scenario_id": "CP-S08",
+      "agent_name": "compliance",
+      "latency_ms": 0.018835067749023438,
+      "confidence": 1.0,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:30:26.958215"
+    },
+    {
+      "scenario_id": "CP-S09",
+      "agent_name": "document_parser",
+      "latency_ms": 43880.31601905823,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:31:10.839790"
+    },
+    {
+      "scenario_id": "CP-S09",
+      "agent_name": "intake",
+      "latency_ms": 12303.929090499878,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:31:23.144049"
+    },
+    {
+      "scenario_id": "CP-S09",
+      "agent_name": "geographic_risk",
+      "latency_ms": 10322.017908096313,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:31:33.468546"
+    },
+    {
+      "scenario_id": "CP-S09",
+      "agent_name": "business_risk",
+      "latency_ms": 52754.13489341736,
+      "confidence": 0.8,
+      "tool_calls": [
+        "dnb"
+      ],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:32:15.899354"
+    },
+    {
+      "scenario_id": "CP-S09",
+      "agent_name": "property_risk",
+      "latency_ms": 64295.199155807495,
+      "confidence": 0.8,
+      "tool_calls": [
+        "fema_flood_zone",
+        "wildfire_risk"
+      ],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:32:27.442897"
+    },
+    {
+      "scenario_id": "CP-S09",
+      "agent_name": "risk_aggregator",
+      "latency_ms": 19399.37400817871,
+      "confidence": 0.75,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:32:46.843007"
+    },
+    {
+      "scenario_id": "CP-S09",
+      "agent_name": "compliance",
+      "latency_ms": 48270.78080177307,
+      "confidence": 0.9,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:33:35.114137"
+    },
+    {
+      "scenario_id": "CP-S09",
+      "agent_name": "coverage_gap",
+      "latency_ms": 39744.492053985596,
+      "confidence": 0.82,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:34:14.859045"
+    },
+    {
+      "scenario_id": "CP-S10",
+      "agent_name": "document_parser",
+      "latency_ms": 31699.40423965454,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:34:46.561219"
+    },
+    {
+      "scenario_id": "CP-S10",
+      "agent_name": "intake",
+      "latency_ms": 12104.905128479004,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:34:58.666504"
+    },
+    {
+      "scenario_id": "CP-S10",
+      "agent_name": "geographic_risk",
+      "latency_ms": 9700.531959533691,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:35:08.369678"
+    },
+    {
+      "scenario_id": "CP-S10",
+      "agent_name": "property_risk",
+      "latency_ms": 52400.726079940796,
+      "confidence": 0.8,
+      "tool_calls": [
+        "fema_flood_zone",
+        "wildfire_risk"
+      ],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:35:51.071151"
+    },
+    {
+      "scenario_id": "CP-S10",
+      "agent_name": "business_risk",
+      "latency_ms": 64428.90405654907,
+      "confidence": 0.8,
+      "tool_calls": [
+        "dnb"
+      ],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:36:03.096350"
+    },
+    {
+      "scenario_id": "CP-S10",
+      "agent_name": "risk_aggregator",
+      "latency_ms": 12724.52998161316,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:36:15.822045"
+    },
+    {
+      "scenario_id": "CP-S10",
+      "agent_name": "compliance",
+      "latency_ms": 47866.729974746704,
+      "confidence": 0.9,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:37:03.689086"
+    },
+    {
+      "scenario_id": "CP-S10",
+      "agent_name": "coverage_gap",
+      "latency_ms": 41956.02798461914,
+      "confidence": 0.82,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:37:45.645639"
+    },
+    {
+      "scenario_id": "CA-S01",
+      "agent_name": "document_parser",
+      "latency_ms": 47874.10092353821,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:38:33.521445"
+    },
+    {
+      "scenario_id": "CA-S01",
+      "agent_name": "intake",
+      "latency_ms": 118249.78995323181,
+      "confidence": 0.92,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:40:31.771571"
+    },
+    {
+      "scenario_id": "CA-S01",
+      "agent_name": "property_risk",
+      "latency_ms": 63802.865982055664,
+      "confidence": 0.7,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:41:35.578106"
+    },
+    {
+      "scenario_id": "CA-S01",
+      "agent_name": "business_risk",
+      "latency_ms": 75721.60005569458,
+      "confidence": 0.8,
+      "tool_calls": [
+        "dnb"
+      ],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:41:47.494230"
+    },
+    {
+      "scenario_id": "CA-S01",
+      "agent_name": "geographic_risk",
+      "latency_ms": 87007.45868682861,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:41:58.781655"
+    },
+    {
+      "scenario_id": "CA-S01",
+      "agent_name": "risk_aggregator",
+      "latency_ms": 9235.95380783081,
+      "confidence": 0.77,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:42:08.018170"
+    },
+    {
+      "scenario_id": "CA-S01",
+      "agent_name": "compliance",
+      "latency_ms": 27897.606134414673,
+      "confidence": 0.9,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:42:35.916108"
+    },
+    {
+      "scenario_id": "CA-S01",
+      "agent_name": "coverage_gap",
+      "latency_ms": 40777.38380432129,
+      "confidence": 0.87,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:43:16.693919"
+    },
+    {
+      "scenario_id": "CA-S02",
+      "agent_name": "document_parser",
+      "latency_ms": 46677.62470245361,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:44:03.375002"
+    },
+    {
+      "scenario_id": "CA-S02",
+      "agent_name": "intake",
+      "latency_ms": 125671.89502716064,
+      "confidence": 0.92,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:46:09.047264"
+    },
+    {
+      "scenario_id": "CA-S02",
+      "agent_name": "business_risk",
+      "latency_ms": 36869.88687515259,
+      "confidence": 0.8,
+      "tool_calls": [
+        "dnb"
+      ],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:46:45.917613"
+    },
+    {
+      "scenario_id": "CA-S02",
+      "agent_name": "geographic_risk",
+      "latency_ms": 64647.0890045166,
+      "confidence": 0.6,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:47:13.696337"
+    },
+    {
+      "scenario_id": "CA-S02",
+      "agent_name": "property_risk",
+      "latency_ms": 76163.18011283875,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:47:25.213798"
     },
     {
       "scenario_id": "CA-S02",
       "agent_name": "risk_aggregator",
-      "latency_ms": 8794.090986251831,
-      "confidence": 0.58,
+      "latency_ms": 9727.226972579956,
+      "confidence": 0.74,
       "tool_calls": [],
       "retry_count": 0,
-      "timestamp": "2026-06-21T22:52:08.410564"
+      "timestamp": "2026-08-19T07:47:34.941737"
     },
     {
       "scenario_id": "CA-S02",
       "agent_name": "compliance",
-      "latency_ms": 28646.986961364746,
-      "confidence": 1.0,
+      "latency_ms": 26892.096996307373,
+      "confidence": 0.9,
       "tool_calls": [],
       "retry_count": 0,
-      "timestamp": "2026-06-21T22:52:37.058549"
+      "timestamp": "2026-08-19T07:48:01.834221"
     },
     {
       "scenario_id": "CA-S02",
       "agent_name": "coverage_gap",
-      "latency_ms": 29417.45114326477,
+      "latency_ms": 35059.86189842224,
       "confidence": 0.87,
       "tool_calls": [],
       "retry_count": 0,
-      "timestamp": "2026-06-21T22:53:06.476893"
+      "timestamp": "2026-08-19T07:48:36.895107"
     },
     {
       "scenario_id": "CA-S03",
       "agent_name": "document_parser",
-      "latency_ms": 20354.949712753296,
+      "latency_ms": 30641.506910324097,
       "confidence": 0.8,
       "tool_calls": [],
       "retry_count": 0,
-      "timestamp": "2026-06-21T22:53:26.835392"
+      "timestamp": "2026-08-19T07:49:07.538336"
     },
     {
       "scenario_id": "CA-S03",
       "agent_name": "intake",
-      "latency_ms": 41645.03002166748,
-      "confidence": 0.95,
+      "latency_ms": 117443.61186027527,
+      "confidence": 0.92,
       "tool_calls": [],
       "retry_count": 0,
-      "timestamp": "2026-06-21T22:54:08.482117"
-    },
-    {
-      "scenario_id": "CA-S03",
-      "agent_name": "property_risk",
-      "latency_ms": 44842.44513511658,
-      "confidence": 0.65,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:54:53.327174"
-    },
-    {
-      "scenario_id": "CA-S03",
-      "agent_name": "geographic_risk",
-      "latency_ms": 84109.20286178589,
-      "confidence": 0.6,
-      "tool_calls": [
-        "mvr"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:55:32.592828"
+      "timestamp": "2026-08-19T07:51:04.982300"
     },
     {
       "scenario_id": "CA-S03",
       "agent_name": "business_risk",
-      "latency_ms": 133489.72988128662,
-      "confidence": 0.75,
-      "tool_calls": [
-        "dnb",
-        "dot_safety"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:56:21.972553"
-    },
-    {
-      "scenario_id": "CA-S03",
-      "agent_name": "risk_aggregator",
-      "latency_ms": 12275.951147079468,
-      "confidence": 0.67,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:56:34.250643"
-    },
-    {
-      "scenario_id": "CA-S03",
-      "agent_name": "compliance",
-      "latency_ms": 64941.76411628723,
-      "confidence": 1.0,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:57:39.193203"
-    },
-    {
-      "scenario_id": "CA-S04",
-      "agent_name": "document_parser",
-      "latency_ms": 23269.03009414673,
+      "latency_ms": 37011.18516921997,
       "confidence": 0.8,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:58:02.466561"
-    },
-    {
-      "scenario_id": "CA-S04",
-      "agent_name": "intake",
-      "latency_ms": 45105.769872665405,
-      "confidence": 1.0,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:58:47.573110"
-    },
-    {
-      "scenario_id": "CA-S04",
-      "agent_name": "geographic_risk",
-      "latency_ms": 53799.280881881714,
-      "confidence": 0.45,
-      "tool_calls": [
-        "mvr"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T22:59:41.374895"
-    },
-    {
-      "scenario_id": "CA-S04",
-      "agent_name": "business_risk",
-      "latency_ms": 111597.80406951904,
-      "confidence": 0.9,
-      "tool_calls": [
-        "dnb",
-        "dot_safety"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:00:39.171891"
-    },
-    {
-      "scenario_id": "CA-S04",
-      "agent_name": "property_risk",
-      "latency_ms": 158393.37611198425,
-      "confidence": 0.7,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:01:25.969802"
-    },
-    {
-      "scenario_id": "CA-S04",
-      "agent_name": "risk_aggregator",
-      "latency_ms": 9347.656965255737,
-      "confidence": 0.68,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:01:35.318865"
-    },
-    {
-      "scenario_id": "CA-S04",
-      "agent_name": "compliance",
-      "latency_ms": 64240.77010154724,
-      "confidence": 1.0,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:02:39.560091"
-    },
-    {
-      "scenario_id": "CA-S05",
-      "agent_name": "document_parser",
-      "latency_ms": 24562.99114227295,
-      "confidence": 0.8,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:03:04.127836"
-    },
-    {
-      "scenario_id": "CA-S05",
-      "agent_name": "intake",
-      "latency_ms": 46477.23698616028,
-      "confidence": 1.0,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:03:50.605824"
-    },
-    {
-      "scenario_id": "CA-S05",
-      "agent_name": "property_risk",
-      "latency_ms": 43651.968002319336,
-      "confidence": 0.8,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:04:34.260752"
-    },
-    {
-      "scenario_id": "CA-S05",
-      "agent_name": "business_risk",
-      "latency_ms": 104637.68696784973,
-      "confidence": 0.8,
-      "tool_calls": [
-        "dnb",
-        "dot_safety"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:05:35.244387"
-    },
-    {
-      "scenario_id": "CA-S05",
-      "agent_name": "geographic_risk",
-      "latency_ms": 149793.4331893921,
-      "confidence": 0.4,
-      "tool_calls": [
-        "mvr"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:06:20.401480"
-    },
-    {
-      "scenario_id": "CA-S05",
-      "agent_name": "risk_aggregator",
-      "latency_ms": 11811.520099639893,
-      "confidence": 0.65,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:06:32.214831"
-    },
-    {
-      "scenario_id": "CA-S05",
-      "agent_name": "compliance",
-      "latency_ms": 65768.90897750854,
-      "confidence": 1.0,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:07:37.984071"
-    },
-    {
-      "scenario_id": "CA-S06",
-      "agent_name": "document_parser",
-      "latency_ms": 23423.398971557617,
-      "confidence": 0.8,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:08:01.411435"
-    },
-    {
-      "scenario_id": "CA-S06",
-      "agent_name": "intake",
-      "latency_ms": 37757.61699676514,
-      "confidence": 0.95,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:08:39.169819"
-    },
-    {
-      "scenario_id": "CA-S06",
-      "agent_name": "geographic_risk",
-      "latency_ms": 44635.82396507263,
-      "confidence": 0.5,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:09:23.807942"
-    },
-    {
-      "scenario_id": "CA-S06",
-      "agent_name": "property_risk",
-      "latency_ms": 85053.36689949036,
-      "confidence": 0.85,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:10:04.226228"
-    },
-    {
-      "scenario_id": "CA-S06",
-      "agent_name": "business_risk",
-      "latency_ms": 143830.30915260315,
-      "confidence": 0.6,
       "tool_calls": [
         "dnb"
       ],
       "retry_count": 0,
-      "timestamp": "2026-06-21T23:11:03.001221"
+      "timestamp": "2026-08-19T07:51:41.994486"
     },
     {
-      "scenario_id": "CA-S06",
-      "agent_name": "risk_aggregator",
-      "latency_ms": 9467.031002044678,
-      "confidence": 0.6,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:11:12.469990"
-    },
-    {
-      "scenario_id": "CA-S06",
-      "agent_name": "compliance",
-      "latency_ms": 81891.40295982361,
-      "confidence": 1.0,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:12:34.362284"
-    },
-    {
-      "scenario_id": "CA-S07",
-      "agent_name": "document_parser",
-      "latency_ms": 20492.071866989136,
+      "scenario_id": "CA-S03",
+      "agent_name": "property_risk",
+      "latency_ms": 63883.108139038086,
       "confidence": 0.8,
       "tool_calls": [],
       "retry_count": 0,
-      "timestamp": "2026-06-21T23:12:54.856745"
+      "timestamp": "2026-08-19T07:52:08.870559"
     },
     {
-      "scenario_id": "CA-S07",
-      "agent_name": "intake",
-      "latency_ms": 46595.536947250366,
-      "confidence": 0.95,
+      "scenario_id": "CA-S03",
+      "agent_name": "geographic_risk",
+      "latency_ms": 75905.7137966156,
+      "confidence": 0.6,
       "tool_calls": [],
       "retry_count": 0,
-      "timestamp": "2026-06-21T23:13:41.453065"
+      "timestamp": "2026-08-19T07:52:20.891682"
     },
     {
-      "scenario_id": "CA-S07",
+      "scenario_id": "CA-S03",
+      "agent_name": "risk_aggregator",
+      "latency_ms": 7442.713022232056,
+      "confidence": 0.74,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:52:28.335234"
+    },
+    {
+      "scenario_id": "CA-S03",
+      "agent_name": "compliance",
+      "latency_ms": 26862.046003341675,
+      "confidence": 0.9,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:52:55.198110"
+    },
+    {
+      "scenario_id": "CA-S03",
+      "agent_name": "coverage_gap",
+      "latency_ms": 36389.22095298767,
+      "confidence": 0.87,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:53:31.587768"
+    },
+    {
+      "scenario_id": "CA-S04",
+      "agent_name": "document_parser",
+      "latency_ms": 30791.37372970581,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:54:02.380977"
+    },
+    {
+      "scenario_id": "CA-S05",
+      "agent_name": "document_parser",
+      "latency_ms": 33720.83878517151,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:56:31.029047"
+    },
+    {
+      "scenario_id": "CA-S05",
+      "agent_name": "intake",
+      "latency_ms": 103875.42867660522,
+      "confidence": 0.9,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:58:14.904994"
+    },
+    {
+      "scenario_id": "CA-S05",
+      "agent_name": "geographic_risk",
+      "latency_ms": 68073.81224632263,
+      "confidence": 0.6,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:59:22.981098"
+    },
+    {
+      "scenario_id": "CA-S05",
+      "agent_name": "business_risk",
+      "latency_ms": 79761.73305511475,
+      "confidence": 0.8,
+      "tool_calls": [
+        "dnb"
+      ],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:59:34.667283"
+    },
+    {
+      "scenario_id": "CA-S05",
       "agent_name": "property_risk",
-      "latency_ms": 41680.60517311096,
+      "latency_ms": 91702.78596878052,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:59:46.611205"
+    },
+    {
+      "scenario_id": "CA-S05",
+      "agent_name": "risk_aggregator",
+      "latency_ms": 8514.029026031494,
+      "confidence": 0.74,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T07:59:55.125946"
+    },
+    {
+      "scenario_id": "CA-S05",
+      "agent_name": "compliance",
+      "latency_ms": 27938.43388557434,
+      "confidence": 0.9,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:00:23.064765"
+    },
+    {
+      "scenario_id": "CA-S05",
+      "agent_name": "coverage_gap",
+      "latency_ms": 29264.99915122986,
+      "confidence": 0.87,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:00:52.330807"
+    },
+    {
+      "scenario_id": "CA-S06",
+      "agent_name": "document_parser",
+      "latency_ms": 31271.320104599,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:01:23.603830"
+    },
+    {
+      "scenario_id": "CA-S06",
+      "agent_name": "intake",
+      "latency_ms": 20280.30300140381,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:01:43.885228"
+    },
+    {
+      "scenario_id": "CA-S06",
+      "agent_name": "property_risk",
+      "latency_ms": 58896.97194099426,
       "confidence": 0.7,
       "tool_calls": [],
       "retry_count": 0,
-      "timestamp": "2026-06-21T23:14:23.139578"
+      "timestamp": "2026-08-19T08:02:42.786406"
     },
     {
-      "scenario_id": "CA-S07",
+      "scenario_id": "CA-S06",
       "agent_name": "business_risk",
-      "latency_ms": 102642.45676994324,
-      "confidence": 0.9,
+      "latency_ms": 70807.21092224121,
+      "confidence": 0.8,
       "tool_calls": [
         "dnb",
         "dot_safety"
       ],
       "retry_count": 0,
-      "timestamp": "2026-06-21T23:15:24.096730"
+      "timestamp": "2026-08-19T08:02:54.693106"
     },
     {
-      "scenario_id": "CA-S07",
+      "scenario_id": "CA-S06",
       "agent_name": "geographic_risk",
-      "latency_ms": 150632.8730583191,
-      "confidence": 0.5,
-      "tool_calls": [
-        "mvr"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:16:12.090246"
-    },
-    {
-      "scenario_id": "CA-S07",
-      "agent_name": "risk_aggregator",
-      "latency_ms": 13569.119930267334,
-      "confidence": 0.68,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:16:25.660699"
-    },
-    {
-      "scenario_id": "CA-S07",
-      "agent_name": "compliance",
-      "latency_ms": 0.09822845458984375,
-      "confidence": 1.0,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:16:25.661565"
-    },
-    {
-      "scenario_id": "CA-S08",
-      "agent_name": "document_parser",
-      "latency_ms": 23682.42573738098,
-      "confidence": 0.8,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:16:49.347107"
-    },
-    {
-      "scenario_id": "CA-S08",
-      "agent_name": "intake",
-      "latency_ms": 43626.853942871094,
-      "confidence": 0.95,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:17:32.974481"
-    },
-    {
-      "scenario_id": "CA-S08",
-      "agent_name": "geographic_risk",
-      "latency_ms": 33099.58815574646,
-      "confidence": 0.4,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:18:06.076082"
-    },
-    {
-      "scenario_id": "CA-S08",
-      "agent_name": "property_risk",
-      "latency_ms": 77536.41676902771,
+      "latency_ms": 82830.93309402466,
       "confidence": 0.7,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:18:50.513960"
-    },
-    {
-      "scenario_id": "CA-S08",
-      "agent_name": "business_risk",
-      "latency_ms": 127225.11577606201,
-      "confidence": 0.6,
-      "tool_calls": [
-        "dnb"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:19:40.200307"
-    },
-    {
-      "scenario_id": "CA-S08",
-      "agent_name": "risk_aggregator",
-      "latency_ms": 11616.240739822388,
-      "confidence": 0.6,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:19:51.818159"
-    },
-    {
-      "scenario_id": "CA-S08",
-      "agent_name": "compliance",
-      "latency_ms": 63900.32196044922,
-      "confidence": 0.95,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:20:55.719326"
-    },
-    {
-      "scenario_id": "CA-S09",
-      "agent_name": "document_parser",
-      "latency_ms": 22502.279043197632,
-      "confidence": 0.8,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:21:18.225482"
-    },
-    {
-      "scenario_id": "CA-S09",
-      "agent_name": "intake",
-      "latency_ms": 33838.5751247406,
-      "confidence": 0.95,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:21:52.064828"
-    },
-    {
-      "scenario_id": "CA-S09",
-      "agent_name": "geographic_risk",
-      "latency_ms": 40575.22487640381,
-      "confidence": 0.6,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:22:32.659057"
-    },
-    {
-      "scenario_id": "CA-S09",
-      "agent_name": "property_risk",
-      "latency_ms": 86704.75220680237,
-      "confidence": 0.6,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:23:18.791613"
-    },
-    {
-      "scenario_id": "CA-S09",
-      "agent_name": "business_risk",
-      "latency_ms": 131430.16815185547,
-      "confidence": 0.75,
-      "tool_calls": [
-        "dnb"
-      ],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:24:03.497126"
-    },
-    {
-      "scenario_id": "CA-S09",
-      "agent_name": "risk_aggregator",
-      "latency_ms": 13028.966188430786,
-      "confidence": 0.65,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:24:16.528652"
-    },
-    {
-      "scenario_id": "CA-S09",
-      "agent_name": "compliance",
-      "latency_ms": 45752.44116783142,
-      "confidence": 1.0,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:25:02.281974"
-    },
-    {
-      "scenario_id": "CA-S10",
-      "agent_name": "document_parser",
-      "latency_ms": 23432.713985443115,
-      "confidence": 0.8,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:25:25.719808"
-    },
-    {
-      "scenario_id": "CA-S10",
-      "agent_name": "intake",
-      "latency_ms": 38636.15608215332,
-      "confidence": 0.95,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:26:04.356845"
-    },
-    {
-      "scenario_id": "CA-S10",
-      "agent_name": "property_risk",
-      "latency_ms": 39135.581970214844,
-      "confidence": 0.5,
-      "tool_calls": [],
-      "retry_count": 0,
-      "timestamp": "2026-06-21T23:26:43.495058"
-    },
-    {
-      "scenario_id": "CA-S10",
-      "agent_name": "geographic_risk",
-      "latency_ms": 76085.17408370972,
-      "confidence": 0.6,
       "tool_calls": [
         "mvr"
       ],
       "retry_count": 0,
-      "timestamp": "2026-06-21T23:27:20.443867"
+      "timestamp": "2026-08-19T08:03:06.718756"
     },
     {
-      "scenario_id": "CA-S10",
+      "scenario_id": "CA-S06",
+      "agent_name": "risk_aggregator",
+      "latency_ms": 13880.2969455719,
+      "confidence": 0.73,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:03:20.599599"
+    },
+    {
+      "scenario_id": "CA-S06",
+      "agent_name": "compliance",
+      "latency_ms": 0.1380443572998047,
+      "confidence": 1.0,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:03:20.601373"
+    },
+    {
+      "scenario_id": "CA-S07",
+      "agent_name": "document_parser",
+      "latency_ms": 30647.499084472656,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:03:51.251589"
+    },
+    {
+      "scenario_id": "CA-S07",
+      "agent_name": "intake",
+      "latency_ms": 14490.74673652649,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:04:05.742754"
+    },
+    {
+      "scenario_id": "CA-S07",
+      "agent_name": "property_risk",
+      "latency_ms": 40285.63690185547,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:04:46.031952"
+    },
+    {
+      "scenario_id": "CA-S07",
       "agent_name": "business_risk",
-      "latency_ms": 120171.62704467773,
-      "confidence": 0.9,
+      "latency_ms": 51988.55209350586,
+      "confidence": 0.8,
       "tool_calls": [
         "dnb",
         "dot_safety"
       ],
       "retry_count": 0,
-      "timestamp": "2026-06-21T23:28:04.529087"
+      "timestamp": "2026-08-19T08:04:57.731888"
     },
     {
-      "scenario_id": "CA-S10",
+      "scenario_id": "CA-S07",
+      "agent_name": "geographic_risk",
+      "latency_ms": 63968.3997631073,
+      "confidence": 0.6,
+      "tool_calls": [
+        "mvr"
+      ],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:05:09.713568"
+    },
+    {
+      "scenario_id": "CA-S07",
       "agent_name": "risk_aggregator",
-      "latency_ms": 20545.549869537354,
-      "confidence": 0.68,
+      "latency_ms": 11477.47802734375,
+      "confidence": 0.74,
       "tool_calls": [],
       "retry_count": 0,
-      "timestamp": "2026-06-21T23:28:25.076135"
+      "timestamp": "2026-08-19T08:05:21.191734"
     },
     {
-      "scenario_id": "CA-S10",
+      "scenario_id": "CA-S07",
       "agent_name": "compliance",
-      "latency_ms": 54121.22702598572,
+      "latency_ms": 0.09226799011230469,
       "confidence": 1.0,
       "tool_calls": [],
       "retry_count": 0,
-      "timestamp": "2026-06-21T23:29:19.198218"
+      "timestamp": "2026-08-19T08:05:21.192203"
+    },
+    {
+      "scenario_id": "CA-S08",
+      "agent_name": "document_parser",
+      "latency_ms": 47711.35687828064,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:06:08.905391"
+    },
+    {
+      "scenario_id": "CA-S08",
+      "agent_name": "intake",
+      "latency_ms": 118268.53203773499,
+      "confidence": 0.9,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:08:07.174666"
+    },
+    {
+      "scenario_id": "CA-S08",
+      "agent_name": "geographic_risk",
+      "latency_ms": 59621.45495414734,
+      "confidence": 0.6,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:09:06.799823"
+    },
+    {
+      "scenario_id": "CA-S08",
+      "agent_name": "property_risk",
+      "latency_ms": 71148.55194091797,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:09:18.329200"
+    },
+    {
+      "scenario_id": "CA-S08",
+      "agent_name": "business_risk",
+      "latency_ms": 82743.39199066162,
+      "confidence": 0.8,
+      "tool_calls": [
+        "dnb"
+      ],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:09:29.919166"
+    },
+    {
+      "scenario_id": "CA-S08",
+      "agent_name": "risk_aggregator",
+      "latency_ms": 11409.560918807983,
+      "confidence": 0.74,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:09:41.329253"
+    },
+    {
+      "scenario_id": "CA-S08",
+      "agent_name": "compliance",
+      "latency_ms": 27919.09384727478,
+      "confidence": 0.9,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:10:09.249053"
+    },
+    {
+      "scenario_id": "CA-S08",
+      "agent_name": "coverage_gap",
+      "latency_ms": 39608.37912559509,
+      "confidence": 0.87,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:10:48.858061"
+    },
+    {
+      "scenario_id": "CA-S09",
+      "agent_name": "document_parser",
+      "latency_ms": 34192.32892990112,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:11:23.052562"
+    },
+    {
+      "scenario_id": "CA-S09",
+      "agent_name": "intake",
+      "latency_ms": 118499.42922592163,
+      "confidence": 0.92,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:13:21.552311"
+    },
+    {
+      "scenario_id": "CA-S09",
+      "agent_name": "geographic_risk",
+      "latency_ms": 57835.40916442871,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:14:19.390036"
+    },
+    {
+      "scenario_id": "CA-S09",
+      "agent_name": "business_risk",
+      "latency_ms": 69333.2028388977,
+      "confidence": 0.8,
+      "tool_calls": [
+        "dnb"
+      ],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:14:30.886001"
+    },
+    {
+      "scenario_id": "CA-S09",
+      "agent_name": "property_risk",
+      "latency_ms": 80455.4328918457,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:14:42.011617"
+    },
+    {
+      "scenario_id": "CA-S09",
+      "agent_name": "risk_aggregator",
+      "latency_ms": 8037.393093109131,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:14:50.049698"
+    },
+    {
+      "scenario_id": "CA-S09",
+      "agent_name": "compliance",
+      "latency_ms": 26421.998739242554,
+      "confidence": 0.9,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:15:16.472122"
+    },
+    {
+      "scenario_id": "CA-S09",
+      "agent_name": "coverage_gap",
+      "latency_ms": 34318.51506233215,
+      "confidence": 0.87,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:15:50.791076"
+    },
+    {
+      "scenario_id": "CA-S10",
+      "agent_name": "document_parser",
+      "latency_ms": 29003.03292274475,
+      "confidence": 0.8,
+      "tool_calls": [],
+      "retry_count": 0,
+      "timestamp": "2026-08-19T08:16:19.796487"
     }
   ],
   "summary": {
-    "total_errors": 0,
-    "total_successes": 148,
-    "total_agent_calls": 148,
-    "overall_error_rate": 0.0,
-    "top_error_categories": [],
-    "top_error_agents": [],
-    "avg_latency_ms": 53871.79123388755,
-    "avg_confidence": 0.771554054054054
+    "total_errors": 3,
+    "total_successes": 133,
+    "total_agent_calls": 136,
+    "overall_error_rate": 0.022058823529411766,
+    "top_error_categories": [
+      [
+        "LLM_PARSE_ERROR",
+        2
+      ],
+      [
+        "SCHEMA_VALIDATION",
+        1
+      ]
+    ],
+    "top_error_agents": [
+      [
+        "intake",
+        0.15
+      ]
+    ],
+    "avg_latency_ms": 44769.13735024015,
+    "avg_confidence": 0.8127819548872173
   }
 }
