@@ -6,14 +6,40 @@ Used by local_agents.py and cloud_agents.py for risk dimension scoring.
 from typing import Optional, Dict, List
 import json
 
-# [TOOL_GROUNDING_PATCH]
+# [TOOL_GROUNDING_PATCH] — argument-derived determinism
 import os as _os
 import random as _random
+import hashlib as _hashlib
+
+GTE_SEED = int(_os.environ.get("GTE_SEED", "42"))
+
+
 def seed_tools(seed: int = 42) -> None:
-    """Seed the RNG used by all tool stubs so a run is reproducible."""
+    """Set the global stub seed. Retained for backwards compatibility."""
+    global GTE_SEED
+    GTE_SEED = seed
     _random.seed(seed)
-# Seed at import time from GTE_SEED (default 42) so evaluation is deterministic.
-seed_tools(int(_os.environ.get('GTE_SEED', '42')))
+
+
+def _rng(tool_name: str, *keys) -> _random.Random:
+    """
+    Return an independent RNG keyed on (GTE_SEED, tool_name, call arguments).
+
+    Stub values therefore depend only on *what was asked*, never on call order,
+    thread interleaving, retry count, or which systems ran earlier in the
+    harness. The same scenario yields identical stub data on every run and
+    across every system under comparison, which is what makes the baseline
+    comparison sound as well as reproducible.
+
+    hashlib is used rather than hash() because str hashing is salted per
+    process (PYTHONHASHSEED), which would defeat the purpose.
+    """
+    material = "|".join([str(GTE_SEED), tool_name, *(str(k) for k in keys)])
+    digest = _hashlib.sha256(material.encode("utf-8")).digest()
+    return _random.Random(int.from_bytes(digest[:8], "big"))
+
+
+seed_tools(GTE_SEED)
 
 
 
@@ -84,7 +110,7 @@ def lookup_fema_flood_zone(latitude: float, longitude: float, address: str) -> D
     Returns FEMA flood zone (X, A, AE, VE, etc) and flood risk level.
     """
     # Mock: 70% of locations are Zone X (low risk)
-    import random
+    random = _rng("lookup_fema_flood_zone", latitude, longitude, address)
     zones = ["X", "X", "X", "X", "X", "A", "A", "AE", "VE"]
     zone = random.choice(zones)
 
@@ -109,7 +135,7 @@ def lookup_wildfire_risk(latitude: float, longitude: float, state: str) -> Dict:
     Check wildfire risk score for a property (WUI — Wildland-Urban Interface).
     Returns wildfire risk tier and historical incident count in 5-mile radius.
     """
-    import random
+    random = _rng("lookup_wildfire_risk", latitude, longitude, state)
     risk_tier = random.choice(["LOW", "LOW", "MEDIUM", "MEDIUM", "HIGH", "VERY_HIGH"])
 
     return {
@@ -128,7 +154,7 @@ def lookup_mvr(driver_name: str, driver_license: str, state: str) -> Dict:
     Motor Vehicle Record (MVR) lookup.
     Returns violations, accidents, license status for a driver.
     """
-    import random
+    random = _rng("lookup_mvr", driver_name, driver_license, state)
     violation_types = [
         "SPEEDING",
         "UNSAFE_LANE_CHANGE",
@@ -156,7 +182,7 @@ def lookup_dnb_business(business_name: str, ein: str, state: str) -> Dict:
     Dun & Bradstreet (D&B) business credit and risk lookup.
     Returns payment history, failure risk, business stability score.
     """
-    import random
+    random = _rng("lookup_dnb_business", business_name, ein, state)
 
     return {
         "company_name": business_name,
@@ -174,7 +200,7 @@ def lookup_dot_safety_rating(carrier_name: str, mc_number: str) -> Dict:
     DOT (Department of Transportation) safety rating for a commercial carrier.
     Returns SAFER database safety rating: SATISFACTORY | CONDITIONAL | UNSATISFACTORY | NOT_RATED.
     """
-    import random
+    random = _rng("lookup_dot_safety_rating", carrier_name, mc_number)
     rating = random.choice(["SATISFACTORY", "SATISFACTORY", "SATISFACTORY", "CONDITIONAL", "UNSATISFACTORY"])
 
     return {
@@ -218,7 +244,7 @@ def lookup_base_rate(submission_type: str, sic_code: str, state: str,
     Lookup base rate and tier for a given submission type and SIC code.
     Returns base rate per $100 of coverage, adjustment factor ranges.
     """
-    import random
+    random = _rng("lookup_base_rate", submission_type, sic_code, state)
 
     base_rates = {
         "COMMERCIAL_PROPERTY": round(random.uniform(0.5, 3.0), 2),

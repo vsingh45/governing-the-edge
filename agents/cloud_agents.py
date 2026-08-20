@@ -59,6 +59,11 @@ class ExplainabilityOutput(BaseModel):
 
 # ── Node 3d: Risk Aggregator ──────────────────────────────────────────────────
 
+# Captures the exact text sent to the first cloud agent, for the privacy leakage
+# audit (evaluation/privacy_analysis.py). Not used at inference time.
+CAPTURED_HANDOFF_PAYLOADS: List[Dict] = []
+
+
 @wrap_agent_with_tracking("risk_aggregator")
 def risk_aggregator_node(state: UnderwritingState) -> UnderwritingState:
     """
@@ -79,6 +84,11 @@ def risk_aggregator_node(state: UnderwritingState) -> UnderwritingState:
         f"{state.agent_explanations.get('geographic_risk', {})}, "
         f"{state.agent_explanations.get('business_risk', {})}"
     )
+
+    CAPTURED_HANDOFF_PAYLOADS.append({
+        "scenario_id": state.scenario_id,
+        "payload": score_summary,
+    })
 
     result = llm_call(
         model=get_model("cloud"),

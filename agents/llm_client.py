@@ -15,13 +15,54 @@ litellm.set_verbose = False
 T = TypeVar("T", bound=BaseModel)
 
 
+def _extract_json(raw: str) -> dict:
+    """
+    Parse a JSON object out of a raw LLM response, robust to two local-model
+    quirks observed with Gemma 2:
+      1. The full JSON *schema* echoed back instead of (or before) the data.
+      2. The schema echoed first, followed by the real answer in a separate
+         ```json fenced block — i.e. two concatenated JSON objects.
+    Prefers the last fenced ```json block if present, else the last valid
+    top-level JSON object found in the text.
+    """
+    fenced = re.findall(r"```(?:json)?\s*(\{.*?\})\s*```", raw, re.DOTALL)
+    if fenced:
+        return json.loads(fenced[-1])
+
+    try:
+        return json.loads(raw)
+    except json.JSONDecodeError:
+        pass
+
+    decoder = json.JSONDecoder()
+    text = raw.strip()
+    objects = []
+    idx = 0
+    while idx < len(text):
+        chunk = text[idx:].lstrip()
+        if not chunk:
+            break
+        skip = len(text[idx:]) - len(chunk)
+        try:
+            obj, end = decoder.raw_decode(chunk)
+            objects.append(obj)
+            idx += skip + end
+        except json.JSONDecodeError:
+            break
+
+    if objects:
+        return objects[-1]
+
+    raise ValueError(f"Could not extract JSON from LLM response: {raw[:200]!r}")
+
+
 def llm_call(
     model: str,
     system_prompt: str,
     user_prompt: str,
     response_schema: Type[T],
-    temperature: float = 0.1,
-    max_tokens: int = 2000,
+    temperature: float = 0.0,
+    max_tokens: int = 4000,
     max_retries: int = 3,
 ) -> T:
     """
@@ -67,11 +108,7 @@ def llm_call(
             )
             raw = response.choices[0].message.content.strip()
 
-            # Strip markdown code fences if present
-            raw = re.sub(r"^```(?:json)?\s*", "", raw)
-            raw = re.sub(r"\s*```$", "", raw)
-
-            parsed = json.loads(raw)
+            parsed = _extract_json(raw)
             # Gemma sometimes returns the full JSON Schema structure {"title":..,"properties":{..}}
             # instead of the flat data object — unwrap the "properties" level.
             # Safe because none of our Pydantic schemas have a field named "properties".
@@ -95,8 +132,8 @@ def llm_call_raw(
     model: str,
     system_prompt: str,
     user_prompt: str,
-    temperature: float = 0.1,
-    max_tokens: int = 2000,
+    temperature: float = 0.0,
+    max_tokens: int = 4000,
 ) -> str:
     """Simple raw text LLM call — returns string. Used for prompts that don't need schema."""
     response = litellm.completion(
